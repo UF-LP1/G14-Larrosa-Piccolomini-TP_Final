@@ -128,14 +128,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cANPA.cpp" />
+    <ClCompile Include="cFabricante.cpp" />
+    <ClCompile Include="cHospital.cpp" />
     <ClCompile Include="cListaT.cpp" />
     <ClCompile Include="cLugar.cpp" />
+    <ClCompile Include="cOrtopedia.cpp" />
     <ClCompile Include="TPFinal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cANPA.h" />
+    <ClInclude Include="cFabricante.h" />
+    <ClInclude Include="cHospital.h" />
     <ClInclude Include="cListaT.h" />
     <ClInclude Include="cLugar.h" />
+    <ClInclude Include="cOrtopedia.h" />
     <ClInclude Include="headers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
