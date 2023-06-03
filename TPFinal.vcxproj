@@ -132,7 +132,10 @@
     <ClCompile Include="cHospital.cpp" />
     <ClCompile Include="cListaT.cpp" />
     <ClCompile Include="cLugar.cpp" />
-    <ClCompile Include="cOrtopedia.cpp" />
+    <ClCompile Include="cMedico.cpp" />
+    <ClCompile Include="cPaciente.cpp" />
+    <ClCompile Include="cPersona.cpp" />
+    <ClCompile Include="cProtesis.cpp" />
     <ClCompile Include="TPFinal.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +144,11 @@
     <ClInclude Include="cHospital.h" />
     <ClInclude Include="cListaT.h" />
     <ClInclude Include="cLugar.h" />
-    <ClInclude Include="cOrtopedia.h" />
+    
+    <ClInclude Include="cMedico.h" />
+    <ClInclude Include="cPaciente.h" />
+    <ClInclude Include="cPersona.h" />
+    <ClInclude Include="cProtesis.h" />
     <ClInclude Include="headers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
