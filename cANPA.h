@@ -1,8 +1,21 @@
 #pragma once
 #include "headers.h"
 
-class cANPA {
-public:
-private:
-};
+#include "cListaT.h"
+#include "cRegistro.h"
+#include "cOrtopedia.h"
+#include "cHospital.h"
+#include "cPaciente.h"
 
+class cANPA {
+private:
+	cListaT<cRegistro>* listaRegistros;
+	cListaT<cOrtopedia>* listaOrtopedias;
+	cListaT<cHospital>* listaHospital;
+	cListaT<cPaciente>* listaPaciente;
+
+public:
+	cANPA();
+	~cANPA();
+
+};

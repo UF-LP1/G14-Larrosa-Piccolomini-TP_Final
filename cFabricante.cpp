@@ -1,6 +1,6 @@
 #include "cFabricante.h"
 
-cFabricante::cFabricante(string Nombre, string Direccion, string NumHabilit) : cLugar(Nombre, Direccion), numHabilit(NumHabilit) {
+cFabricante::cFabricante(string Nombre, string Direccion, string NumHabilit) : numHabilit(NumHabilit), cLugar(Nombre, Direccion) {
 }
 
 cFabricante::~cFabricante() {

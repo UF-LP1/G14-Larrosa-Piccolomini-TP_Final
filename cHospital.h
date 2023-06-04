@@ -1,11 +1,13 @@
 #pragma once
 
+#include "cListaT.h"
 #include "cLugar.h"
 
 class cHospital : public cLugar {
 private:
-	// cListaT<cMedico> listaMedicos;
-	// cListaT<cOrtopedia> listaOrtopConvenio;
+	cListaT<cMedico>* listaMedicos;
+	cListaT<cOrtopedia>* listaOrtopConvenio;
+
 public:
 	cHospital(string,string);
 	~cHospital();
