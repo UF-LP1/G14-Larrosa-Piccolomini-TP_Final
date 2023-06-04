@@ -1,14 +1,15 @@
 #pragma once
+
 #include "cPersona.h"
 
 class cMedico: public cPersona {
-
 private:
-	string matricula;
+	const string matricula;
 
 public:
-	cMedico(string Matricula);
+	cMedico(const string,const string,const string);
 	~cMedico();
+
 	string to_string();
 	void imprimir();
 	void solicitarOrtopedias();

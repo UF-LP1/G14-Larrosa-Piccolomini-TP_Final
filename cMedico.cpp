@@ -1,31 +1,26 @@
 #include "cMedico.h"
 
-cMedico::cMedico(string Matricula): cPersona(nombre, apellido)
-{
-	this->matricula = Matricula;
+cMedico::cMedico(const string Nombre,const string Apellido, const string Matricula) : matricula(Matricula), cPersona(nombre, apellido) {
 }
 
-cMedico::~cMedico()
-{
+cMedico::~cMedico() {
 }
 
-string cMedico::to_string()
-{
-	string aux;
+string cMedico::to_string() {
+	string aux = "";
 	return aux;
 }
 
-void cMedico::imprimir()
-{
-	//sobrecarga del +, en lugar de cout...
+void cMedico::imprimir() {
 }
 
-void cMedico::solicitarOrtopedias()
-{
+void cMedico::solicitarOrtopedias() {
 	return;
 }
 
-void cMedico::solicitarFabricantes()
-{
+void cMedico::solicitarFabricantes() {
 	return;
 }
+
+// Falta la sobrecarga del +, en lugar de cout
+// No va en cListaT eso? Por algo es una template...

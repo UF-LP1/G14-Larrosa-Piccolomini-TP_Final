@@ -7,6 +7,5 @@ cLugar::~cLugar() {
 }
 
 string cLugar::getClave() const {
-    string aux = this->direccion;
-    return aux;
+    return this->direccion;
 }
