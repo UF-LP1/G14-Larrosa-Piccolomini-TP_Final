@@ -1,17 +1,19 @@
 #pragma once
 #include "headers.h"
 
-class cPersona
-{
+class cPersona {
 protected:
-	string nombre;
-	string apellido;
+	const string nombre;
+	const string apellido;
 
 public:
-	cPersona(string Nombre, string Apellido);
+	cPersona(const string Nombre, const string Apellido);
 	~cPersona();
-	//metodos virtual o virtual puro?
-	virtual string to_string();
-	virtual void imprimir();
-	const string getClave();
+	virtual string to_string() = 0;
+	virtual void imprimir() = 0;
+
+	// No convendria mas hacer getClave() virtual = 0
+	// Asi en medico retorna la matricula
+	// Y en paciente retorna apellido,telContacto 
+	string getClave() const;
 };

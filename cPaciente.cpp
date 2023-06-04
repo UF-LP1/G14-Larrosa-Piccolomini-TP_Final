@@ -1,8 +1,7 @@
 #include "cPaciente.h"
 
-cPaciente::cPaciente(time_t FechaNac, string TelContacto, double RadioAmputado, string Alergias, cHospital HospitalPropio, bool Autorizacion, 
-	cProtesis Protesis): cPersona(nombre, apellido)
-{
+cPaciente::cPaciente(const string Nombre, const string Apellido) : cPersona(nombre, apellido) {
+	/*
 	this->fechaNac = FechaNac;
 	this->telContacto = TelContacto;
 	this->radioAmputado = RadioAmputado;
@@ -10,19 +9,18 @@ cPaciente::cPaciente(time_t FechaNac, string TelContacto, double RadioAmputado, 
 	this->hospitalPropio = HospitalPropio;
 	this->autorizacion = Autorizacion;
 	this->protesis = Protesis;
+	*/
 }
 
-cPaciente::~cPaciente()
-{
+cPaciente::~cPaciente() {
 }
 
-string cPaciente::to_string()
-{
-	string aux;
+string cPaciente::to_string() {
+	string aux = "";
 	return aux;
 }
 
-void cPaciente::imprimir()
-{
-	//sobrecarga del op+...
+void cPaciente::imprimir() {
 }
+
+// Falta sobrecarga del op+...

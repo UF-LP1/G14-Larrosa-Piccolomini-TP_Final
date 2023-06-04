@@ -1,6 +1,6 @@
 #include "cOrtopedia.h"
 
-cOrtopedia::cOrtopedia(string Nombre, string Direccion) : cLugar(Nombre,Direccion) {
+cOrtopedia::cOrtopedia(const string Nombre, const string Direccion) : cLugar(Nombre,Direccion) {
 }
 
 cOrtopedia::~cOrtopedia() {
