@@ -128,12 +128,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cANPA.cpp" />
-    <ClCompile Include="cListaT.cpp" />
+    <ClCompile Include="cFabricante.cpp" />
+    <ClCompile Include="cHospital.cpp" />
+    <ClCompile Include="cLugar.cpp" />
+    <ClCompile Include="cMedico.cpp" />
+    <ClCompile Include="cNoQuirurgica.cpp" />
+    <ClCompile Include="cOrtopedia.cpp" />
+    <ClCompile Include="cPaciente.cpp" />
+    <ClCompile Include="cPersona.cpp" />
+    <ClCompile Include="cProtesis.cpp" />
+    <ClCompile Include="cQuirurgica.cpp" />
+    <ClCompile Include="cRegistro.cpp" />
     <ClCompile Include="TPFinal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cANPA.h" />
-    <ClInclude Include="cListaT.h" />
+    <ClInclude Include="cFabricante.h" />
+    <ClInclude Include="cHospital.h" />
+    <ClInclude Include="cLugar.h" />
+    <ClInclude Include="cMedico.h" />
+    <ClInclude Include="cNoQuirurgica.h" />
+    <ClInclude Include="cOrtopedia.h" />
+    <ClInclude Include="cPaciente.h" />
+    <ClInclude Include="cPersona.h" />
+    <ClInclude Include="cProtesis.h" />
+    <ClInclude Include="cQuirurgica.h" />
+    <ClInclude Include="cRegistro.h" />
     <ClInclude Include="headers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
