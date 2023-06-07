@@ -1,8 +1,9 @@
 #pragma once
 #include "headers.h"
+#include "cFabricante.h"
 
 class cProtesis {
-private:
+protected:
 	string dimentions;
 	string materiales;
 	time_t fechaFabricacion;

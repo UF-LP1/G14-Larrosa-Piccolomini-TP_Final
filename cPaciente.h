@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cPersona.h"
+#include "cProtesis.h"
 #include "cHospital.h"
 
 class cPaciente : public cPersona {
@@ -17,17 +18,14 @@ private:
 
 
 public:
-	// Parametros para el constructor? No conviene hacer un par por default?
-	// time_t FechaNac, string TelContacto, double RadioAmputado,
-	// string Alergias, cHospital* HospitalPropio, bool Autorizacion, cProtesis* Protesis
-	cPaciente(const string, const string);
+	cPaciente(const string, const string,/*string,*/string, double, string, cHospital*);
 	~cPaciente();
 
 	double getRadio();
 	string getAlergias();
 	bool getAutorizacion();
-	cProtesis getProtesis();
-	cHospital getHospitalPropio();
+	cProtesis* getProtesis();
+	cHospital* getHospitalPropio();
 	string to_string();
 	void imprimir();
 };

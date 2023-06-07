@@ -1,14 +1,13 @@
 #pragma once
 
 #include "cLugar.h"
-#include "cListaT.h"
 #include "cProtesis.h"
 #include "cFabricante.h"
 
 class cOrtopedia : public cLugar {
 private:
-	cListaT<cProtesis>* listaProtesis;
-	cListaT<cFabricante>* listaFabricantes;
+	list<cProtesis>* listaProtesis;
+	list<cFabricante>* listaFabricantes;
 public:
 	cOrtopedia(string, string);
 	~cOrtopedia();

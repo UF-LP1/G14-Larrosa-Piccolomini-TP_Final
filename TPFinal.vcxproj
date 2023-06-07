@@ -130,7 +130,6 @@
     <ClCompile Include="cANPA.cpp" />
     <ClCompile Include="cFabricante.cpp" />
     <ClCompile Include="cHospital.cpp" />
-    <ClCompile Include="cListaT.cpp" />
     <ClCompile Include="cLugar.cpp" />
     <ClCompile Include="cMedico.cpp" />
     <ClCompile Include="cOrtopedia.cpp" />
@@ -144,7 +143,6 @@
     <ClInclude Include="cANPA.h" />
     <ClInclude Include="cFabricante.h" />
     <ClInclude Include="cHospital.h" />
-    <ClInclude Include="cListaT.h" />
     <ClInclude Include="cLugar.h" />
     <ClInclude Include="cMedico.h" />
     <ClInclude Include="cOrtopedia.h" />

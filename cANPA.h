@@ -1,7 +1,6 @@
 #pragma once
 #include "headers.h"
 
-#include "cListaT.h"
 #include "cRegistro.h"
 #include "cOrtopedia.h"
 #include "cHospital.h"
@@ -9,10 +8,10 @@
 
 class cANPA {
 private:
-	cListaT<cRegistro>* listaRegistros;
-	cListaT<cOrtopedia>* listaOrtopedias;
-	cListaT<cHospital>* listaHospital;
-	cListaT<cPaciente>* listaPaciente;
+	list<cRegistro>* listaRegistros;
+	list<cOrtopedia>* listaOrtopedias;
+	list<cHospital>* listaHospital;
+	list<cPaciente>* listaPaciente;
 
 public:
 	cANPA();
