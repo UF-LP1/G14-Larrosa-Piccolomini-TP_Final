@@ -15,6 +15,33 @@ cPaciente::cPaciente(const string Nombre, const string Apellido) : cPersona(nomb
 cPaciente::~cPaciente() {
 }
 
+double cPaciente::getRadio()
+{
+	return this->radioAmputado;
+}
+
+string cPaciente::getAlergias()
+{
+	return this->alergias;
+}
+
+bool cPaciente::getAutorizacion()
+{
+	return false;
+}
+
+cProtesis cPaciente::getProtesis()
+{
+	return this->protesis;
+}
+
+cHospital cPaciente::getHospitalPropio()
+{
+	return this->hospitalPropio;
+}
+
+//getters setters
+
 string cPaciente::to_string() {
 	string aux = "";
 	return aux;
