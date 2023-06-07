@@ -5,7 +5,6 @@
 class cProtesis {
 protected:
 	string dimentions;
-	string materiales;
 	time_t fechaFabricacion;
 	// Tiene sentido que la protesis tenga a su fabricante registrado en si misma?
 	// O es mas logico que el fabricante tenga una lista con TODAS las protesis, asi no hay recursividad?
@@ -13,14 +12,14 @@ protected:
 	eTiposProtesis tipo;
 
 public:
-	cProtesis(string Dimentions, string Materiales, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo);
+	// dynamic cast
+	cProtesis(string Dimentions, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo);
 	~cProtesis();
 
 	string getDimentions();
-	string getMateriales();
 	time_t getFechaFabrica();
 	eTiposProtesis getTipo();
 
-	string to_string();
-	void imprimir();
+	virtual string to_string() = 0;
+	virtual void imprimir() = 0;
 };

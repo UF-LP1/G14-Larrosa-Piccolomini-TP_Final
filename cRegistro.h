@@ -14,10 +14,10 @@ private:
 	time_t fechaEstimada;
 	time_t fechaEntrega;
 	cProtesis* pieza;
-	cPaciente* cPaciente;
+	cPaciente* paciente;
 
 public:
-	cRegistro();
+	cRegistro(cHospital*,cMedico*,time_t,time_t,time_t,cProtesis*,cPaciente*);
 	~cRegistro();
 
 	string to_string();

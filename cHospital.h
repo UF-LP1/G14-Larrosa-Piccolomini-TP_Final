@@ -1,6 +1,8 @@
 #pragma once
 
 #include "cLugar.h"
+#include "cMedico.h"
+#include "cOrtopedia.h"
 
 class cHospital : public cLugar {
 private:

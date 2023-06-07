@@ -11,4 +11,4 @@
 
 using namespace std;
 
-enum eTiposProtesis { QuirSupI, QuirSupD, QuirInfI, QuirInfD, NoQuirSupI, NoQuirSupD, NoQuirInfI, NoQuirInfD };
+enum eTiposProtesis { SupIzq, SupDer, InfIzq, InfDer };
