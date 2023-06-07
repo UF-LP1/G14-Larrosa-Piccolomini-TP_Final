@@ -5,3 +5,9 @@ cANPA::cANPA() {
 
 cANPA::~cANPA() {
 }
+
+void cANPA::agregarPaciente()
+{
+	listaPaciente->agregar();
+
+}

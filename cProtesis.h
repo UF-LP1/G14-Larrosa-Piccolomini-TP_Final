@@ -14,6 +14,12 @@ private:
 public:
 	cProtesis(string Dimentions, string Materiales, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo);
 	~cProtesis();
+
+	string getDimentions();
+	string getMateriales();
+	time_t getFechaFabrica();
+	eTiposProtesis getTipo();
+
 	string to_string();
 	void imprimir();
 };

@@ -18,4 +18,8 @@ public:
 	cANPA();
 	~cANPA();
 
+	void agregarPaciente();
+	cPaciente agregarPacConProtesis();
+	cProtesis buscarProtesis();
+	void asignarProtesis();
 };
