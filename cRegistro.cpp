@@ -6,10 +6,6 @@ cRegistro::cRegistro() {
 cRegistro::~cRegistro() {
 }
 
-void cRegistro::imprimir() {
-
-}
-
 string cRegistro::to_string() {
 	string aux = "";
 	return aux;
@@ -18,4 +14,8 @@ string cRegistro::to_string() {
 string cRegistro::getClave() const {
 	string aux = "";
 	return aux;
+}
+
+void cRegistro::imprimir() {
+
 }

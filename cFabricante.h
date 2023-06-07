@@ -11,4 +11,5 @@ public:
 	~cFabricante();
 	string to_string();
 	void imprimir();
+	friend class cProtesis;
 };

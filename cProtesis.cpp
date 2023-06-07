@@ -11,23 +11,19 @@ cProtesis::cProtesis(string Dimentions, string Materiales, time_t FechaFabricaci
 cProtesis::~cProtesis() {
 }
 
-string cProtesis::getDimentions()
-{
+string cProtesis::getDimentions() {
 	return this->dimentions;
 }
 
-string cProtesis::getMateriales()
-{
+string cProtesis::getMateriales() {
 	return this->materiales;
 }
 
-time_t cProtesis::getFechaFabrica()
-{
+time_t cProtesis::getFechaFabrica() {
 	return this->fechaFabricacion;
 }
 
-eTiposProtesis cProtesis::getTipo()
-{
+eTiposProtesis cProtesis::getTipo() {
 	return this->tipo;
 }
 
