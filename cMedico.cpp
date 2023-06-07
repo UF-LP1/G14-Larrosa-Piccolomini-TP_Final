@@ -14,6 +14,11 @@ string cMedico::to_string() {
 void cMedico::imprimir() {
 }
 
+string cMedico::getMatricula()
+{
+	return this->matricula;
+}
+
 void cMedico::solicitarOrtopedias() {
 	return;
 }

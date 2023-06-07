@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cPersona.h"
+#include "cHospital.h"
 
 class cPaciente : public cPersona {
 private:
@@ -9,10 +10,10 @@ private:
 	double radioAmputado;
 	string alergias;
 	cHospital* hospitalPropio;
-	// Definir relacion (con cHospital)
+	// Definir relacion (con cHospital): AGREGACION
 	bool autorizacion;
 	cProtesis* protesis;
-	// Definir relacion (con cProtesis)
+	// Definir relacion (con cProtesis):?
 
 
 public:
@@ -21,6 +22,12 @@ public:
 	// string Alergias, cHospital* HospitalPropio, bool Autorizacion, cProtesis* Protesis
 	cPaciente(const string, const string);
 	~cPaciente();
+
+	double getRadio();
+	string getAlergias();
+	bool getAutorizacion();
+	cProtesis getProtesis();
+	cHospital getHospitalPropio();
 	string to_string();
 	void imprimir();
 };

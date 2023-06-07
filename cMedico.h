@@ -10,8 +10,9 @@ public:
 	cMedico(const string,const string,const string);
 	~cMedico();
 
-	string to_string();
-	void imprimir();
+	string getMatricula();
 	void solicitarOrtopedias();
 	void solicitarFabricantes();
+	string to_string();
+	void imprimir();
 };
