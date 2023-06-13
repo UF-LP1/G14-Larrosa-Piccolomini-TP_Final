@@ -11,6 +11,11 @@
 #include "cHospital.h"
 #include "cOrtopedia.h"
 
+
 int main(void) {
+    srand(time(NULL));
+
+
+
     return 0;
 }

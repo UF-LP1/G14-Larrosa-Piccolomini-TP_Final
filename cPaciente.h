@@ -11,14 +11,12 @@ private:
 	double radioAmputado;
 	string alergias;
 	cHospital* hospitalPropio;
-	// Definir relacion (con cHospital): AGREGACION
 	bool autorizacion;
 	cProtesis* protesis;
-	// Definir relacion (con cProtesis):?
 
 
 public:
-	cPaciente(const string, const string,/*string,*/string, double, string, cHospital*);
+	cPaciente(const string, const string, const string, string, double, string, cHospital*);
 	~cPaciente();
 
 	double getRadio();
@@ -28,4 +26,8 @@ public:
 	cHospital* getHospitalPropio();
 	string to_string();
 	void imprimir();
+
+	bool operator==(const cPaciente& pacienteComparar) {
+		
+	}
 };

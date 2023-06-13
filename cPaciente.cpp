@@ -1,6 +1,6 @@
 #include "cPaciente.h"
 
-cPaciente::cPaciente(const string Nombre, const string Apellido,/*string FechaNac, */string TelContacto, double RadioAmputado, string Alergias, cHospital* HospitalPropio) : cPersona(nombre, apellido) {
+cPaciente::cPaciente(const string Nombre, const string Apellido, const string FechaNac, string TelContacto, double RadioAmputado, string Alergias, cHospital* HospitalPropio) : cPersona(nombre, apellido) {
 	// Ver como pasar del string de fecha, a un time_t
 	// this->fechaNac = FechaNac;
 	this->telContacto = TelContacto;
