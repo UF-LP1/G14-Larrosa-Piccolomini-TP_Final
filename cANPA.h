@@ -29,7 +29,7 @@ public:
 	
 	// Va a buscar los pacientes que YA TIENEN protesis
 	// Sea segun la protesis o el hospital
-	void buscarPacientsConProtesis();
+	void buscarPacientesConProtesis();
 
 	// Sobrecarga del operador +
 	// donde se agregan elementos a las listas del ANPA

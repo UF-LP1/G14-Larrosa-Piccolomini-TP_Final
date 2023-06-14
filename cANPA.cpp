@@ -1,14 +1,21 @@
 #include "cANPA.h"
 
 cANPA::cANPA() {
+	this->listaRegistros = list<cRegistro*>();
+	this->listaOrtopedias = list<cOrtopedia*>();
+	this->listaHospitales = list<cHospital*>();
+	this->listaPacientes = list<cPaciente*>();
 }
 
 cANPA::~cANPA() {
+	// Creamos un iterador para cada lista del ANPA
 	list<cRegistro*>::iterator itrReg = this->listaRegistros.begin();
 	list<cOrtopedia*>::iterator itrOrt = this->listaOrtopedias.begin();
 	list<cHospital*>::iterator itrHosp = this->listaHospitales.begin();
 	list<cPaciente*>::iterator itrPac = this->listaPacientes.begin();
 
+	// Recorremos todas las listas borrando cada elemento
+	// Es mas lindo que tener 10mil deletes en el main
 	for (itrReg; itrReg != this->listaRegistros.end(); itrReg++) {
 		delete (*itrReg);
 	}
@@ -30,7 +37,7 @@ void cANPA::agregarPacienteParticular() {
 
 }
 
-void cANPA::buscarPacientsConProtesis() {
+void cANPA::buscarPacientesConProtesis() {
 }
 
 // En las agregar de Registro, Ortopedia y Hospital
