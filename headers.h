@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <sstream>
 #include <vector>
 #include <string>
 #include <ctime>
@@ -12,7 +13,7 @@
 using namespace std;
 
 typedef struct sFecha {
-	unsigned int dia, mes, anio;
+	int dia, mes, anio;
 };
 
 enum eTiposProtesis { SupIzq, SupDer, InfIzq, InfDer };
