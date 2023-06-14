@@ -14,5 +14,17 @@ public:
 	~cHospital();
 	string to_string();
 	void imprimir();
+
+	void agregarMedico(cMedico& newMedico);
+
+	void agregarOrtopedia(cOrtopedia& newOrtopedia);
+
+	void operator+(cMedico &newMedico) {
+		agregarMedico(newMedico);
+	}
+
+	void operator+(cOrtopedia& newOrtopedia) {
+		agregarOrtopedia(newOrtopedia);
+	}
 };
 
