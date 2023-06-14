@@ -14,9 +14,10 @@
 
 int main(void) {
     srand(time(NULL));
+    cANPA* anpa = new cANPA();
 
 
 
-
+    delete anpa;
     return 0;
 }

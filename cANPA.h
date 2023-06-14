@@ -31,27 +31,22 @@ public:
 	// Sea segun la protesis o el hospital
 	void buscarPacientsConProtesis();
 
-
-
-	// Hay que hacer 4 sobrecargas de +
-	// En las 4 se agrega un elemento a las listas
-	// Como son 4 listas, hay 4 operadores distintos
-	// Idem para el -
-
+	// Sobrecarga del operador +
+	// donde se agregan elementos a las listas del ANPA
 	void operator+(cRegistro& newRegistro) {
-
+		agregarRegistro(newRegistro);
 	}
 
 	void operator+(cOrtopedia& newOrtopedia) {
-
+		agregarOrtopedia(newOrtopedia);
 	}
 
 	void operator+(cHospital& newHospital) {
-
+		agregarHospital(newHospital);
 	}
 
 	void operator+(cPaciente& newPaciente) {
-
+		agregarPaciente(newPaciente);
 	}
 };
 
