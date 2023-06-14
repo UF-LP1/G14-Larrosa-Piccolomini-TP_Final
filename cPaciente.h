@@ -6,7 +6,7 @@
 
 class cPaciente : public cPersona {
 private:
-	time_t fechaNac;
+	tm fechaNac;
 	string telContacto;
 	double radioAmputado;
 	string alergias;
