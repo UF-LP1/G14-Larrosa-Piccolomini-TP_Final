@@ -11,4 +11,8 @@
 
 using namespace std;
 
+typedef struct sFecha {
+	unsigned int dia, mes, anio;
+};
+
 enum eTiposProtesis { SupIzq, SupDer, InfIzq, InfDer };
