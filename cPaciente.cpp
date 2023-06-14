@@ -1,6 +1,6 @@
 #include "cPaciente.h"
 
-cPaciente::cPaciente(const string Nombre, const string Apellido, const string FechaNac, string TelContacto, double RadioAmputado, string Alergias, cHospital* HospitalPropio) : cPersona(nombre, apellido) {
+cPaciente::cPaciente(const string Nombre, const string Apellido, const string FechaNac, string TelContacto, double RadioAmputado, string Alergias, cHospital* HospitalPropio) : cPersona(Nombre, Apellido) {
 	// Ver como pasar del string de fecha, a un time_t
 	// this->fechaNac = FechaNac;
 	this->telContacto = TelContacto;
@@ -21,6 +21,8 @@ cPaciente::cPaciente(const string Nombre, const string Apellido, const string Fe
 
 cPaciente::~cPaciente() {
 }
+
+
 
 // Getters y Setters
 
@@ -52,5 +54,3 @@ string cPaciente::to_string() {
 
 void cPaciente::imprimir() {
 }
-
-// Falta sobrecarga del op+...

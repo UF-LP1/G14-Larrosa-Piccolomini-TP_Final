@@ -6,8 +6,8 @@
 
 class cHospital : public cLugar {
 private:
-	list<cMedico>* listaMedicos;
-	list<cOrtopedia>* listaOrtopConvenio;
+	list<cMedico*> listaMedicos;
+	list<cOrtopedia*> listaOrtopConvenio;
 
 public:
 	cHospital(string,string);

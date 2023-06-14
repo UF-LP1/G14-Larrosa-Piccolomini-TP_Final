@@ -1,6 +1,8 @@
 #include "cHospital.h"
 
 cHospital::cHospital(string Nombre, string Direccion) : cLugar(Nombre,Direccion) {
+    
+    this->listaOrtopConvenio;
 }
 
 cHospital::~cHospital() {

@@ -6,8 +6,8 @@
 
 class cOrtopedia : public cLugar {
 private:
-	list<cProtesis>* listaProtesis;
-	list<cFabricante>* listaFabricantes;
+	list<cProtesis*> listaProtesis;
+	list<cFabricante*> listaFabricantes;
 public:
 	cOrtopedia(string, string);
 	~cOrtopedia();
