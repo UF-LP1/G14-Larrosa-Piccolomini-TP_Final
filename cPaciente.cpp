@@ -1,8 +1,29 @@
 #include "cPaciente.h"
-
+// HACER TODOS LOS DE TIME_T con TM
+// ES MUCHO MAS SIMPLE DE HACER
 cPaciente::cPaciente(const string Nombre, const string Apellido, const string FechaNac, string TelContacto, double RadioAmputado, string Alergias, cHospital* HospitalPropio) : cPersona(Nombre, Apellido) {
-	// Ver como pasar del string de fecha, a un time_t
-	// this->fechaNac = FechaNac;
+	// La fecha que se le pasa al constructor esta
+	// en el formato de dd/mm/aaaa
+	stringstream fechaIngresada(FechaNac);
+	string aux = "";
+	sFecha auxF = { 0,0,0 };
+
+	// Escaneamos el string de la fecha, hasta cada '\'
+	// Guardando en un auxiliar los datos de dia, mes y anio
+	getline(fechaIngresada, aux, '/');
+	auxF.dia = stoi(aux);
+
+	getline(fechaIngresada, aux, '/');
+	auxF.mes = stoi(aux);
+
+	getline(fechaIngresada, aux);
+	auxF.anio = stoi(aux);
+
+	// Pasamos lo guardado a un struct tm, para luego poder convertirlo a un time_t
+	// el -1900 en anio es porque tm tiene en cuenta los anios pasados desde el 1900
+	// el -1 en mes es porque el rango va de 0 a 11
+	this->fechaNac = { 0, 0, 0, auxF.dia, auxF.mes - 1, auxF.anio - 1900 };
+
 	this->telContacto = TelContacto;
 
 	// El radio puede ser 0
@@ -53,4 +74,5 @@ string cPaciente::to_string() {
 }
 
 void cPaciente::imprimir() {
+
 }
