@@ -34,72 +34,90 @@ cANPA::~cANPA() {
 }
 
 void cANPA::agregarPacienteParticular() {
-
+	// Se tienen que ingresar por teclado los datos de un paciente
+	// Luego se guarda en listaPacientes
 }
 
 //encapsular metPacodo en modulos de distintas funciones
-void cANPA::AsignacionDeProtesis(	) {
+void cANPA::asignacionDeProtesis() {
 	
-	//modulos de chequeo y uso de variables tipoClase para prolijidad
-	list<cPaciente*> ::iterator itP;
-	//chequea necesidad de protesis. 
-	cPaciente* Pac = buscarPacSinProtesis(itP);
+	// Busca un paciente con necesidad de protesis
+	cPaciente* paciente = buscarPacSinProtesis();
 
-	list<cOrtopedia*> ::iterator itO;
-	//chequea convenio
-	cOrtopedia* Orto = coincidirOrtopedia(itO, Pac);
-	 
-	//busca protesis required
-	cProtesis* Prote = busquedaProtesis(Pac,Orto);
-	
-	//protesis encontrada entonces asignada
-	Pac->setProtesis(Prote);
+	if (paciente != nullptr) {
+		// Chequea convenio del hospital del paciente con las ortopedias
+		cProtesis* protesis = busquedaProtesis(*paciente);
 
-	return;
-}
-
-cPaciente* cANPA::buscarPacSinProtesis(list<cPaciente*> ::iterator itP)
-{
-	itP = listaPacientes.begin();
-	if ((*itP)->getProtesis() == nullptr || ((*itP)->getRadio() == 0))
-	{
-		return (*itP);
-	}
-	else
-		throw exception("Paciente no necesita protesis");
-}
-
-cOrtopedia* cANPA::coincidirOrtopedia(list<cOrtopedia*>::iterator itO, cPaciente*Pac)
-{
-	itO = listaOrtopedias.begin();
-	for (itO; itO != listaOrtopedias.end(); itO++)
-	{
-		try
-		{
-			string OrtopediaCoincide = (Pac)->getHospitalPropio()->convenioConOrto((*itO)->getClave());
-		}
-		catch (exception e)
-		{
-			cout << e.what() << endl;
+		if (protesis != nullptr) {
+			// Si protesis no es nullptr, entonces alguna fue encontrada
+			// Dicha protesis se le asigna al paciente
+			paciente->setProtesis(*protesis);
 		}
 	}
-	return (*itO);
+
+	else {
+		throw exception("Ya no queda nadie registrado que necesite una protesis");
+	}
 }
 
-cProtesis* cANPA::busquedaProtesis(cPaciente* Pac, cOrtopedia* Orto)
-{
-	try
-	{
-		double Dimension = Pac->getProtesis()->getDimentions();
-		eTiposProtesis tipoP = Pac->getProtesis()->getTipo();
-		cProtesis* GivenProt = Orto->protRequired(Dimension, tipoP);
+// Recorre la lista de pacientes registrados del ANPA
+// hasta encontrar uno que no tenga una protesis asignada
+// y su radio de amputacion sea diferente a 0
+// (es decir, que tenga algo cortado y necesite atencion medica)
+// En caso de que no encuentre a nadie asi, retorna nullptr
+cPaciente* cANPA::buscarPacSinProtesis() {
+	cPaciente* aux = nullptr;
+	bool flag = true;
+	list<cPaciente*> ::iterator itr = listaPacientes.begin();
+
+	while (flag && itr != this->listaPacientes.end()) {
+		if ((*itr)->getProtesis() == nullptr && (*itr)->getRadio() != 0) {
+			aux = *itr;
+			flag = false;
+		}
 	}
-	catch (exception e)
-	{
-		cout << e.what() << endl;
+
+	return aux;
+}
+
+cProtesis* cANPA::busquedaProtesis(cPaciente& paciente) {
+	cProtesis* aux = nullptr;
+	bool flag = true;
+	list<cHospital*>::iterator itrHosp = this->listaHospitales.begin();
+	list<cOrtopedia*>::iterator itrOrt;
+	list<cProtesis*>::iterator itrProt;
+
+	// Recorremos todos los hospitales hasta encontrar el del paciente
+	while (flag && *itrHosp != this->listaHospitales.back()) {
+
+		// Vemos si el hospital del paciente es el que tenemos con el iterador
+		if ((*itrHosp) == paciente.getHospitalPropio()) {
+			itrOrt = (*itrHosp)->getPrimOrtop();
+
+			// En caso de que si, recorremos todas las ortopedias con convenio del hospital
+			while ( flag && itrOrt != (*itrHosp)->getUltOrtop() ) {
+
+				// Luego, recorremos todas las protesis disponibles de la ortopedia
+				itrProt = (*itrOrt)->getPrimProt();
+				while ( flag && itrProt != (*itrOrt)->getUltProt()) {
+
+					// Y comparamos a ver si la protesis del paciente es alguna de las que hay en la Ortopedia
+					if ( (*itrProt) == paciente.protesis ) {
+						aux = paciente.protesis;
+						flag = false;
+					}
+					itrProt++;
+				}
+				itrOrt++;
+			}
+		}
+		itrHosp++;
 	}
-	//si ortopedia tiene la protesis, procedo a ponersela  a paciente
-	//sino, alternativa fabricante
+
+	// Si no encuntra ninguna protesis 
+	// en ninguna ortopedia con convenio del hospital,
+	// retorna nullptr
+	return aux;
 }
 
 // En las agregar de Registro, Ortopedia y Hospital
@@ -132,7 +150,7 @@ void cANPA::agregarPaciente(cPaciente& newPaciente) {
 	for (itr; itr != this->listaPacientes.end(); itr++) {
 		if (newPaciente == itr) {
 			// HAY QUE HACER MEJOR EL THROW DE ESTA COSA
-			throw("Paciente Ya registrado");
+			throw exception("Paciente Ya registrado");
 			flag = false;
 		}
 	}
@@ -142,14 +160,3 @@ void cANPA::agregarPaciente(cPaciente& newPaciente) {
 		this->listaPacientes.push_back(&newPaciente);
 	}
 }
-
-// cPadre* tuViejo
-// cHijoFav* hijo = dynamic_cast<cHijoFav>(tuViejo)
-// 
-// if(hijo != nullptr) {
-//	es tu hijo favorito
-// }
-// 
-// else {
-//  es adoptado
-// }

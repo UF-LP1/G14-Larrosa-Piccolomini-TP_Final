@@ -29,10 +29,9 @@ public:
 
 	// Va a buscar los pacientes que YA TIENEN protesis
 	// Sea segun la protesis o el hospital
-	void AsignacionDeProtesis();
-	cPaciente* buscarPacSinProtesis(list<cPaciente*> ::iterator itP);
-	cOrtopedia* coincidirOrtopedia(list<cOrtopedia*> ::iterator itO, cPaciente* paciente);
-	cProtesis* busquedaProtesis(cPaciente*Pac,cOrtopedia* Orto);
+	void asignacionDeProtesis();
+	cPaciente* buscarPacSinProtesis();
+	cProtesis* busquedaProtesis(cPaciente& paciente);
 
 	// Sobrecarga del operador +
 	// donde se agregan elementos a las listas del ANPA
@@ -52,13 +51,18 @@ public:
 		agregarPaciente(newPaciente);
 	}
 
-	cPaciente* operator[](int index)
-	{
-		if (index < 0 || index >= listaPacientes.size()) {
-			std::cerr << "Índice fuera de rango!" << endl;
-			return nullptr; // Otra opción sería lanzar una excepción
+	cPaciente* operator[](int i) {
+		if ( i < 0 || i >= listaPacientes.size() ) {
+			throw exception("Índice fuera de rango!");
 		}
 
-		return this->listaPacientes[index];
+		int cont = 0;
+		list<cPaciente*>::iterator itr = this->listaPacientes.begin();
+		while (cont < i) {
+			cont++;
+			itr++;
+		}
+
+		return (*itr);
 	}
 };

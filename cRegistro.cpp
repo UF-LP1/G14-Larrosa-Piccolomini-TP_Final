@@ -13,7 +13,7 @@ cRegistro::cRegistro(cHospital* Hospital, cMedico* Medico, time_t FechaSoli, tim
 cRegistro::~cRegistro() {
 }
 
-string cRegistro::to_string() {
+string cRegistro::toString() {
 	string aux = "";
 	return aux;
 }

@@ -20,7 +20,7 @@ public:
 	cRegistro(cHospital*,cMedico*,time_t,time_t,time_t,cProtesis*,cPaciente*);
 	~cRegistro();
 
-	string to_string();
+	string toString();
 	void imprimir();
 	// No sabemos que clave poner para que retorne en cRegistro
 	// Direccion del hospital, apellido del medico, dimensiones protesis, apellido paciente?
