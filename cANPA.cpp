@@ -37,7 +37,22 @@ void cANPA::agregarPacienteParticular() {
 
 }
 
-void cANPA::buscarPacientesConProtesis() {
+//necesito aplicarlo a lista. no me da acceso
+cPaciente* cANPA::buscarPacientesSinProtesis(cPaciente* objP) {
+	//recorre la lista de pacientes, chequea si objProt es != nullptr
+	//!= entonces paciente already posee
+		
+	list<cPaciente*> ::iterator itP;
+	itP = listaPacientes.begin();
+
+	for (itP; itP != listaPacientes.end(); itP++)
+	{
+		if (objP != nullptr)
+		{
+			break;
+		}
+		return objP;
+	}
 }
 
 // En las agregar de Registro, Ortopedia y Hospital

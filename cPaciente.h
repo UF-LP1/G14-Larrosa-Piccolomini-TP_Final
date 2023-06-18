@@ -5,6 +5,7 @@
 #include "cHospital.h"
 
 class cPaciente : public cPersona {
+
 private:
 	tm fechaNac;
 	string telContacto;
@@ -15,6 +16,7 @@ private:
 	cProtesis* protesis;
 
 public:
+
 	cPaciente(const string, const string, const string, string, double, string, cHospital*);
 	~cPaciente();
 
@@ -26,6 +28,8 @@ public:
 
 	string to_string();
 	void imprimir();
+
+	friend class cANPA;
 
 	// Solo va a comparar nombre, apellido, fecha de nacimiento y el telefono de contacto
 	// Ya que es imposible que dos personas tengas los mismos 4 datos

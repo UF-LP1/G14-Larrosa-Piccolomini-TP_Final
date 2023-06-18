@@ -12,7 +12,7 @@ private:
 	list<cOrtopedia*> listaOrtopedias;
 	list<cHospital*> listaHospitales;
 	list<cPaciente*> listaPacientes;
-
+		
 public:
 	cANPA();
 	~cANPA();
@@ -26,11 +26,10 @@ public:
 
 	// Agrega a la lista un paciente ingresado por consola
 	void agregarPacienteParticular();
-	
+
 	// Va a buscar los pacientes que YA TIENEN protesis
 	// Sea segun la protesis o el hospital
-	void buscarPacientesConProtesis();
-
+	cPaciente* buscarPacientesSinProtesis(cPaciente* objP);
 	// Sobrecarga del operador +
 	// donde se agregan elementos a las listas del ANPA
 	void operator+(cRegistro& newRegistro) {
@@ -49,4 +48,3 @@ public:
 		agregarPaciente(newPaciente);
 	}
 };
-
