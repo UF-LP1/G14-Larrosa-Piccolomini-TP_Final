@@ -14,7 +14,7 @@ protected:
 
 public:
 	// dynamic cast
-	cProtesis(string Dimentions, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo);
+	cProtesis(double Dimentions, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo);
 	~cProtesis();
 
 	double getDimentions();

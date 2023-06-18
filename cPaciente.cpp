@@ -1,6 +1,8 @@
 #include "cPaciente.h"
+
 // HACER TODOS LOS DE TIME_T con TM
 // ES MUCHO MAS SIMPLE DE HACER
+
 cPaciente::cPaciente(const string Nombre, const string Apellido, const string FechaNac, string TelContacto, double RadioAmputado, string Alergias, cHospital* HospitalPropio) : cPersona(Nombre, Apellido) {
 	// La fecha que se le pasa al constructor esta
 	// en el formato de dd/mm/aaaa
