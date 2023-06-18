@@ -3,27 +3,33 @@
 #include "cLugar.h"
 #include "cMedico.h"
 #include "cOrtopedia.h"
-#include "cPaciente.h"
+// #include "cPaciente.h"
 
 class cHospital : public cLugar {
-private:
+protected:
 	list<cMedico*> listaMedicos;
 	list<cOrtopedia*> listaOrtopConvenio;
-	//relacion en uml.composicion de H a P
-	list<cPaciente*> listaPacientes;
+
+	// Relacion en uml. Composicion de H a P
+	// list<cPaciente*> listaPacientes;
 
 public:
 	cHospital(string,string);
 	~cHospital();
-	string convenioConOrto(string NombreDeOrto);
-	string to_string();
-	void imprimir();
+
+	bool convenioConOrtop(string);
+
+	list<cOrtopedia*>::iterator getPrimOrtop();
+	list<cOrtopedia*>::iterator getUltOrtop();
 
 	void agregarMedico(cMedico& newMedico);
 
 	void agregarOrtopedia(cOrtopedia& newOrtopedia);
 
-	void operator+(cMedico &newMedico) {
+	string toString();
+	void imprimir();
+
+	void operator+(cMedico& newMedico) {
 		agregarMedico(newMedico);
 	}
 

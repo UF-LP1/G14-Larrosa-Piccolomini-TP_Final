@@ -13,7 +13,6 @@
 
 
 int main(void) {
-    srand(time(NULL));
     cANPA* anpa = new cANPA();
 
     

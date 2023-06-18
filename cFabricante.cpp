@@ -6,7 +6,7 @@ cFabricante::cFabricante(string Nombre, string Direccion, string NumHabilit) : n
 cFabricante::~cFabricante() {
 }
 
-string cFabricante::to_string() {
+string cFabricante::toString() {
 	char c = ',';
 	string aux = this->nombre +c+ this->direccion +c+ this->numHabilit;
 	return aux;
@@ -14,5 +14,5 @@ string cFabricante::to_string() {
 
 void cFabricante::imprimir() {
 	cout << "FABRICANTE\nNombre,Direccion,NumeroHabilitacion" << endl;
-	cout << to_string() << endl;
+	cout << toString() << endl;
 }

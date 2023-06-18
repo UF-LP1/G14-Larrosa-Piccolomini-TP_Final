@@ -7,12 +7,12 @@ private:
 	const string matricula;
 
 public:
-	cMedico(const string,const string,const string);
+	cMedico(string,string,string);
 	~cMedico();
 
 	string getMatricula();
 	void solicitarOrtopedias();
 	void solicitarFabricantes();
-	string to_string();
+	string toString();
 	void imprimir();
 };

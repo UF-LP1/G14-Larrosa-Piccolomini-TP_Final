@@ -17,26 +17,37 @@ cHospital::~cHospital() {
     // El deleteo de las ortopedias va en el ANPA, de ahi su ausencia
 }
 
-string cHospital::convenioConOrto(string NombreDeOrto)
-{
-    list<cOrtopedia*>::iterator itO;
-    itO= this->listaOrtopConvenio.begin();
-    string OrtoConConve;
-    for (itO; itO != listaOrtopConvenio.end(); itO++)
-    {
-        if (((*itO)->getClave() == NombreDeOrto))
-            string OrtoConConve = (*itO)->getClave();
-        else 
+// Se le pasa por parametro la direccion de una ortopedia
+// En caso de poseer convenio, retorna true
+// Caso contrario retorna false
+bool cHospital::convenioConOrtop(string direccionOrtop) {
+    list<cOrtopedia*>::iterator itr = this->listaOrtopConvenio.begin();
+    bool flag = false;
+    for (itr; itr != listaOrtopConvenio.end(); itr++) {
+        if (((*itr)->getClave() == direccionOrtop)) {
+            flag = true;
+        }
+        else {
             throw exception("No hay convenio");
+        }
     }
-    return OrtoConConve;
+    return flag;
 }
 
-string cHospital::to_string() {
-    return;
+string cHospital::toString() {
+    string aux = "";
+    return aux;
 }
 
 void cHospital::imprimir() {
+}
+
+list<cOrtopedia*>::iterator cHospital::getPrimOrtop() {
+    return this->listaOrtopConvenio.begin();
+}
+
+list<cOrtopedia*>::iterator cHospital::getUltOrtop() {
+    return this->listaOrtopConvenio.end();
 }
 
 void cHospital::agregarMedico(cMedico& newMedico) {

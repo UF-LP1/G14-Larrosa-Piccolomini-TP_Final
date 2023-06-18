@@ -1,7 +1,8 @@
 #pragma once
 
 #include "cLugar.h"
-#include "cProtesis.h"
+#include "cQuirurgica.h"
+#include "cNoQuirurgica.h"
 #include "cFabricante.h"
 
 class cOrtopedia : public cLugar {
@@ -11,8 +12,13 @@ private:
 public:
 	cOrtopedia(string, string);
 	~cOrtopedia();
-	cProtesis* protRequired(double dimentions, eTiposProtesis tipo);
-	string to_string();
+
+	list<cProtesis*>::iterator getPrimProt();
+	list<cProtesis*>::iterator getUltProt();
+
+	// Protesis requerida necesitará un bool, true = quirurgica
+	cProtesis* protRequerida(bool,double dimentions, eTipos tipo);
+	string toString();
 	void imprimir();
 };
 

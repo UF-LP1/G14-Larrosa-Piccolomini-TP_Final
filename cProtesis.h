@@ -5,22 +5,26 @@
 
 class cProtesis {
 protected:
-	double dimentions;
-	time_t fechaFabricacion;
-	// Tiene sentido que la protesis tenga a su fabricante registrado en si misma?
-	// O es mas logico que el fabricante tenga una lista con TODAS las protesis, asi no hay recursividad?
+	double dimensiones;
+	struct tm fechaFabricacion;
+	// La protesis tiene al fabricante, ya que el fabricante NO TIENE STOCK NUNCA de estas
+	// sino que en caso de necesitarlo, las hace en el momento
 	cFabricante* fabricante;
-	eTiposProtesis tipo;
+	eTipos tipo;
 
 public:
-	// dynamic cast
-	cProtesis(double Dimentions, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo);
+	cProtesis(double, string, cFabricante*, eTipos);
+
+	// Constructor por copia,
+	// por si el fabricante quiere hacer varias veces la misma protesis
+	cProtesis(const cProtesis& protesis);
 	~cProtesis();
 
-	double getDimentions();
-	time_t getFechaFabrica();
-	eTiposProtesis getTipo();
+	double getDimensiones();
+	string getFechaFabricacion();
+	cFabricante* getFabricante();
+	eTipos getTipo();
 
-	virtual string to_string() = 0;
+	virtual string toString() = 0;
 	virtual void imprimir() = 0;
 };

@@ -6,7 +6,7 @@ cMedico::cMedico(const string Nombre,const string Apellido, const string Matricu
 cMedico::~cMedico() {
 }
 
-string cMedico::to_string() {
+string cMedico::toString() {
 	string aux = "";
 	return aux;
 }

@@ -15,29 +15,46 @@ cOrtopedia::~cOrtopedia() {
 		delete (*itProt);
 	}
 
-	for (itFabri; itFabri != this->listaFabricantes.end(); itFabri) {
+	for (itFabri; itFabri != this->listaFabricantes.end(); itFabri++) {
 		delete (*itFabri);
 	}
 }
 
-cProtesis* cOrtopedia::protRequired(double dimentions, eTiposProtesis tipo)
-{
-	list<cProtesis*> ::iterator itProt;
-	itProt = listaProtesis.begin();
-	for (itProt; itProt != listaProtesis.end(); itProt++)
-	{
-		if ((*itProt)->getDimentions() == dimentions && (*itProt)->getTipo() == tipo)
-		{
-			cProtesis* protFound = (*itProt);
-			break;
-		}
-		else
-			throw exception("Protesis not found");
-	}
-	return nullptr;
+list<cProtesis*>::iterator cOrtopedia::getPrimProt() {
+	return this->listaProtesis.begin();
 }
 
-string cOrtopedia::to_string() {
+list<cProtesis*>::iterator cOrtopedia::getUltProt() {
+	return this->listaProtesis.end();
+}
+
+// Se le pasan las dimensiones y el tipo de la protesis, y si es quirurgica o no en forma de bool
+// En caso de que no la encuentre, tira una excepcion y retorna puntero nulo
+cProtesis* cOrtopedia::protRequerida(bool quirurgica, double dimentions, eTipos tipo) {
+	cProtesis* protFound = nullptr;
+	list<cProtesis*>::iterator itr = this->listaProtesis.begin();
+
+	for (itr; itr != this->listaProtesis.end(); itr++) {
+		if ((*itr)->getDimensiones() == dimentions && (*itr)->getTipo() == tipo) {
+
+			if (quirurgica && dynamic_cast<cQuirurgica*>(*itr) != nullptr) {
+				protFound = (*itr);
+			}
+			else if (!quirurgica && dynamic_cast<cNoQuirurgica*>(*itr) != nullptr) {
+				protFound = (*itr);
+			}
+		}
+
+		else {
+			throw exception("Protesis no encontrada");
+		}
+
+	}
+
+	return protFound;
+}
+
+string cOrtopedia::toString() {
 	string aux;
 	return aux;
 }

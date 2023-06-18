@@ -10,7 +10,7 @@ public:
 	cPersona(const string Nombre, const string Apellido);
 	~cPersona();
 
-	virtual string to_string() = 0;
+	virtual string toString() = 0;
 	virtual void imprimir() = 0;
 
 	// No convendria mas hacer getClave() virtual = 0 ?

@@ -12,8 +12,8 @@
 
 using namespace std;
 
-typedef struct sFecha {
+typedef struct Fecha {
 	int dia, mes, anio;
-};
+}sFecha;
 
-enum eTiposProtesis { SupIzq, SupDer, InfIzq, InfDer };
+enum eTipos { SupIzq, SupDer, InfIzq, InfDer };
