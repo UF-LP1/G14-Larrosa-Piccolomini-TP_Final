@@ -1,6 +1,6 @@
 #include "cProtesis.h"
 
-cProtesis::cProtesis(string Dimentions, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo) {
+cProtesis::cProtesis(double Dimentions, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo) {
 	this->dimentions = Dimentions;
 	this->fechaFabricacion = FechaFabricacion;
 	this->fabricante = Fabricante;
@@ -10,7 +10,7 @@ cProtesis::cProtesis(string Dimentions, time_t FechaFabricacion, cFabricante* Fa
 cProtesis::~cProtesis() {
 }
 
-string cProtesis::getDimentions() {
+double cProtesis::getDimentions() {
 	return this->dimentions;
 }
 

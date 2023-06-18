@@ -17,6 +17,21 @@ cHospital::~cHospital() {
     // El deleteo de las ortopedias va en el ANPA, de ahi su ausencia
 }
 
+string cHospital::convenioConOrto(string NombreDeOrto)
+{
+    list<cOrtopedia*>::iterator itO;
+    itO= this->listaOrtopConvenio.begin();
+    string OrtoConConve;
+    for (itO; itO != listaOrtopConvenio.end(); itO++)
+    {
+        if (((*itO)->getClave() == NombreDeOrto))
+            string OrtoConConve = (*itO)->getClave();
+        else 
+            throw exception("No hay convenio");
+    }
+    return OrtoConConve;
+}
+
 string cHospital::to_string() {
     return;
 }
