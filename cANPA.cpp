@@ -38,20 +38,47 @@ void cANPA::agregarPacienteParticular() {
 }
 
 //necesito aplicarlo a lista. no me da acceso
-cPaciente* cANPA::buscarPacientesSinProtesis(cPaciente* objP) {
+cPaciente* cANPA::buscarPacientesSinProtesis(	) {
 	//recorre la lista de pacientes, chequea si objProt es != nullptr
 	//!= entonces paciente already posee
 		
 	list<cPaciente*> ::iterator itP;
 	itP = listaPacientes.begin();
 
+	list<cHospital*> ::iterator itH;
+	itH = listaHospitales.begin();
+
 	for (itP; itP != listaPacientes.end(); itP++)
 	{
-		if (objP != nullptr)
+		if ((*itP)->getProtesis() == nullptr || ((*itP)->getRadio()==0))
 		{
-			break;
+			list<cOrtopedia*> ::iterator itO;
+			itO = listaOrtopedias.begin();
+			for (itO; itO != listaOrtopedias.end(); itO++)
+			{
+				try
+				{
+					string OrtopediaCoincide=(*itP)->getHospitalPropio()->convenioConOrto((*itO)->getClave());
+				}
+				catch (exception e)
+				{
+					cout << e.what() << endl;
+				}
+				try
+				{
+					cProtesis* GivenProt = (*itO)->protRequired((*itP)->
+						getProtesis()->getDimentions(), (*itP)->getProtesis()->getTipo());
+				}
+				catch (exception e)
+				{
+					cout << e.what() << endl;
+				}
+				//si ortopedia tiene la protesis, procedo a ponersela  a paciente
+				//sino, alternativa fabricante
+				
+			}
 		}
-		return objP;
+		return nullptr;
 	}
 }
 

@@ -20,6 +20,23 @@ cOrtopedia::~cOrtopedia() {
 	}
 }
 
+cProtesis* cOrtopedia::protRequired(double dimentions, eTiposProtesis tipo)
+{
+	list<cProtesis*> ::iterator itProt;
+	itProt = listaProtesis.begin();
+	for (itProt; itProt != listaProtesis.end(); itProt++)
+	{
+		if ((*itProt)->getDimentions() == dimentions && (*itProt)->getTipo() == tipo)
+		{
+			cProtesis* protFound = (*itProt);
+			break;
+		}
+		else
+			throw exception("Protesis not found");
+	}
+	return nullptr;
+}
+
 string cOrtopedia::to_string() {
 	string aux;
 	return aux;

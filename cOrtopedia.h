@@ -11,6 +11,7 @@ private:
 public:
 	cOrtopedia(string, string);
 	~cOrtopedia();
+	cProtesis* protRequired(double dimentions, eTiposProtesis tipo);
 	string to_string();
 	void imprimir();
 };

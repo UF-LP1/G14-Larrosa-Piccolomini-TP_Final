@@ -29,7 +29,7 @@ public:
 
 	// Va a buscar los pacientes que YA TIENEN protesis
 	// Sea segun la protesis o el hospital
-	cPaciente* buscarPacientesSinProtesis(cPaciente* objP);
+	cPaciente* buscarPacientesSinProtesis(	);
 	// Sobrecarga del operador +
 	// donde se agregan elementos a las listas del ANPA
 	void operator+(cRegistro& newRegistro) {
@@ -46,5 +46,15 @@ public:
 
 	void operator+(cPaciente& newPaciente) {
 		agregarPaciente(newPaciente);
+	}
+
+	cPaciente* operator[](int index)
+	{
+		if (index < 0 || index >= listaPacientes.size()) {
+			std::cerr << "Índice fuera de rango!" << endl;
+			return nullptr; // Otra opción sería lanzar una excepción
+		}
+
+		return this->listaPacientes[index];
 	}
 };

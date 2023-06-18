@@ -10,7 +10,7 @@ cProtesis::cProtesis(string Dimentions, time_t FechaFabricacion, cFabricante* Fa
 cProtesis::~cProtesis() {
 }
 
-string cProtesis::getDimentions() {
+double cProtesis::getDimentions() {
 	return this->dimentions;
 }
 

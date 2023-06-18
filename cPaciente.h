@@ -7,7 +7,7 @@
 class cPaciente : public cPersona {
 
 private:
-	tm fechaNac;
+	struct tm fechaNac;
 	string telContacto;
 	double radioAmputado;
 	string alergias;
@@ -30,6 +30,7 @@ public:
 	void imprimir();
 
 	friend class cANPA;
+	friend class cMedico;
 
 	// Solo va a comparar nombre, apellido, fecha de nacimiento y el telefono de contacto
 	// Ya que es imposible que dos personas tengas los mismos 4 datos
