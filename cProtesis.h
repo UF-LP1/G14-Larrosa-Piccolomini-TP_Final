@@ -1,11 +1,11 @@
 #pragma once
 #include "headers.h"
 
-#include "cFabricante.h"
+#include "cFabricante.h"	
 
 class cProtesis {
 protected:
-	string dimentions;
+	double dimentions;
 	time_t fechaFabricacion;
 	// Tiene sentido que la protesis tenga a su fabricante registrado en si misma?
 	// O es mas logico que el fabricante tenga una lista con TODAS las protesis, asi no hay recursividad?
@@ -14,10 +14,10 @@ protected:
 
 public:
 	// dynamic cast
-	cProtesis(string Dimentions, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo);
+	cProtesis(double Dimentions, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo);
 	~cProtesis();
 
-	string getDimentions();
+	double getDimentions();
 	time_t getFechaFabrica();
 	eTiposProtesis getTipo();
 
