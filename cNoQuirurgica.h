@@ -6,9 +6,14 @@ class cNoQuirurgica : public cProtesis {
 private:
 
 public:
-	cNoQuirurgica(string, time_t, cFabricante*, eTiposProtesis);
+	cNoQuirurgica(double, string, cFabricante*, eTipos);
+	// Constructor por copia
+	cNoQuirurgica(const cNoQuirurgica& protesis);
+
 	~cNoQuirurgica();
 
-	string to_string();
+	string toString();
 	void imprimir();
+
 };
+
