@@ -37,49 +37,69 @@ void cANPA::agregarPacienteParticular() {
 
 }
 
-//necesito aplicarlo a lista. no me da acceso
-cPaciente* cANPA::buscarPacientesSinProtesis(	) {
-	//recorre la lista de pacientes, chequea si objProt es != nullptr
-	//!= entonces paciente already posee
-		
+//encapsular metPacodo en modulos de distintas funciones
+void cANPA::AsignacionDeProtesis(	) {
+	
+	//modulos de chequeo y uso de variables tipoClase para prolijidad
 	list<cPaciente*> ::iterator itP;
+	//chequea necesidad de protesis. 
+	cPaciente* Pac = buscarPacSinProtesis(itP);
+
+	list<cOrtopedia*> ::iterator itO;
+	//chequea convenio
+	cOrtopedia* Orto = coincidirOrtopedia(itO, Pac);
+	 
+	//busca protesis required
+	cProtesis* Prote = busquedaProtesis(Pac,Orto);
+	
+	//protesis encontrada entonces asignada
+	Pac->setProtesis(Prote);
+
+	return;
+}
+
+cPaciente* cANPA::buscarPacSinProtesis(list<cPaciente*> ::iterator itP)
+{
 	itP = listaPacientes.begin();
-
-	list<cHospital*> ::iterator itH;
-	itH = listaHospitales.begin();
-
-	for (itP; itP != listaPacientes.end(); itP++)
+	if ((*itP)->getProtesis() == nullptr || ((*itP)->getRadio() == 0))
 	{
-		if ((*itP)->getProtesis() == nullptr || ((*itP)->getRadio()==0))
-		{
-			list<cOrtopedia*> ::iterator itO;
-			itO = listaOrtopedias.begin();
-			for (itO; itO != listaOrtopedias.end(); itO++)
-			{
-				try
-				{
-					string OrtopediaCoincide=(*itP)->getHospitalPropio()->convenioConOrto((*itO)->getClave());
-				}
-				catch (exception e)
-				{
-					cout << e.what() << endl;
-				}
-				try
-				{
-					cProtesis* GivenProt = (*itO)->protRequired((*itP)->
-						getProtesis()->getDimentions(), (*itP)->getProtesis()->getTipo());
-				}
-				catch (exception e)
-				{
-					cout << e.what() << endl;
-				}
-				//si ortopedia tiene la protesis, procedo a ponersela  a paciente
-				//sino, alternativa fabricante
-				
-			}
-		}
-		return nullptr;
+		return (*itP);
 	}
+	else
+		throw exception("Paciente no necesita protesis");
+}
+
+cOrtopedia* cANPA::coincidirOrtopedia(list<cOrtopedia*>::iterator itO, cPaciente*Pac)
+{
+	itO = listaOrtopedias.begin();
+	for (itO; itO != listaOrtopedias.end(); itO++)
+	{
+		try
+		{
+			string OrtopediaCoincide = (Pac)->getHospitalPropio()->convenioConOrto((*itO)->getClave());
+		}
+		catch (exception e)
+		{
+			cout << e.what() << endl;
+		}
+	}
+	return (*itO);
+}
+
+cProtesis* cANPA::busquedaProtesis(cPaciente* Pac, cOrtopedia* Orto)
+{
+	try
+	{
+		double Dimension = Pac->getProtesis()->getDimentions();
+		eTiposProtesis tipoP = Pac->getProtesis()->getTipo();
+		cProtesis* GivenProt = Orto->protRequired(Dimension, tipoP);
+	}
+	catch (exception e)
+	{
+		cout << e.what() << endl;
+	}
+	//si ortopedia tiene la protesis, procedo a ponersela  a paciente
+	//sino, alternativa fabricante
 }
 
 // En las agregar de Registro, Ortopedia y Hospital

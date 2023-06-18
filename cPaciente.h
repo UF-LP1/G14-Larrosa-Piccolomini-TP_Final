@@ -26,6 +26,8 @@ public:
 	cProtesis* getProtesis();
 	cHospital* getHospitalPropio();
 
+	void setProtesis(cProtesis* proteAsignada);
+
 	string to_string();
 	void imprimir();
 

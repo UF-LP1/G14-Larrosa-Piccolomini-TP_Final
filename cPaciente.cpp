@@ -67,6 +67,11 @@ cHospital* cPaciente::getHospitalPropio() {
 	return this->hospitalPropio;
 }
 
+void cPaciente::setProtesis(cProtesis* proteAsignada)
+{
+	this->protesis = proteAsignada;
+}
+
 
 string cPaciente::to_string() {
 	string aux = "";

@@ -29,7 +29,11 @@ public:
 
 	// Va a buscar los pacientes que YA TIENEN protesis
 	// Sea segun la protesis o el hospital
-	cPaciente* buscarPacientesSinProtesis(	);
+	void AsignacionDeProtesis();
+	cPaciente* buscarPacSinProtesis(list<cPaciente*> ::iterator itP);
+	cOrtopedia* coincidirOrtopedia(list<cOrtopedia*> ::iterator itO, cPaciente* paciente);
+	cProtesis* busquedaProtesis(cPaciente*Pac,cOrtopedia* Orto);
+
 	// Sobrecarga del operador +
 	// donde se agregan elementos a las listas del ANPA
 	void operator+(cRegistro& newRegistro) {
