@@ -19,5 +19,5 @@ public:
 	void imprimir();
 };
 
-bool operator==(cProtesis& p1, cProtesis& p2);
+
 

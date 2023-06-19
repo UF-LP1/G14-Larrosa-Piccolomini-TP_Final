@@ -32,9 +32,7 @@ bool operator==(cProtesis& p1, cProtesis& p2) {
 	// Los getFabricante van con * para utilizar la sobrecarga del == hecha en cFabricante.h
 	if (p1.getDimensiones() == p2.getDimensiones() && p1.getFechaFabricacion() == p2.getFechaFabricacion()) {
 		if (p1.getTipo() == p2.getTipo() && *(p1.getFabricante()) == *(p2.getFabricante())) {
-			if (dynamic_cast<cQuirurgica*>(&p1) != nullptr && dynamic_cast<cQuirurgica*>(&p2) != nullptr) {
-				flag = true;
-			}
+			flag = true;
 		}
 	}
 
