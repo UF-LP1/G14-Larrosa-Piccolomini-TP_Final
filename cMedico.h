@@ -5,14 +5,16 @@
 class cMedico: public cPersona {
 private:
 	const string matricula;
+	bool disponibilidad;
 
 public:
-	cMedico(string,string,string);
+	cMedico(string,string,string,bool);
 	~cMedico();
 
 	string getMatricula();
+	bool getDisponibilidad();
 	void solicitarOrtopedias();
-	void solicitarFabricantes();
+	void solicitarFabricante(int tipoProte);
 	string toString();
 	void imprimir();
 };
