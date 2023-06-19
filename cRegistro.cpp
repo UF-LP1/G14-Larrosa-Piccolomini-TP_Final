@@ -1,12 +1,12 @@
 #include "cRegistro.h"
 
-cRegistro::cRegistro(cHospital* Hospital, cMedico* Medico, time_t FechaSoli, time_t FechaEsti, time_t FechaEntre, cProtesis* Pieza, cPaciente* Paciente) {
+cRegistro::cRegistro(cHospital* Hospital, cMedico* Medico, time_t FechaSoli, time_t FechaEsti, time_t FechaEntre, cProtesis* protesis, cPaciente* Paciente) {
 	this->hospital = Hospital;
 	this->medico = Medico;
 	this->fechaSolicitada = FechaSoli;
 	this->fechaEstimada = FechaEsti;
 	this->fechaEntrega = FechaEntre;
-	this->pieza = Pieza;
+	this->pieza = protesis;
 	this->paciente = Paciente;
 }
 
