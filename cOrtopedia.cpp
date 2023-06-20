@@ -28,6 +28,14 @@ list<cProtesis*>::iterator cOrtopedia::getUltProt() {
 	return this->listaProtesis.end();
 }
 
+void cOrtopedia::agregarFabricante(cFabricante& fabricante) {
+	this->listaFabricantes.push_back(&fabricante);
+}
+
+void cOrtopedia::agregarProtesis(cProtesis& protesis) {
+	this->listaProtesis.push_back(&protesis);
+}
+
 // Se le pasan las dimensiones y el tipo de la protesis, y si es quirurgica o no en forma de bool
 // En caso de que no la encuentre, tira una excepcion y retorna puntero nulo
 cProtesis* cOrtopedia::protRequerida(bool quirurgica, double dimentions, eTipos tipo) {
@@ -80,4 +88,24 @@ string cOrtopedia::toString() {
 void cOrtopedia::imprimir() {
 	// nombre,direccion
 	cout << toString() << endl;
+}
+
+ostream& operator<<(ostream& out, cOrtopedia& ortopedia) {
+	out << ortopedia.toString() << endl;
+
+	list<cProtesis*>::iterator itr = ortopedia.getPrimProt();
+
+	for (itr; itr != ortopedia.getUltProt(); itr++) {
+		out << (*itr)->toString() << ',';
+
+		if (dynamic_cast<cQuirurgica*>(*itr) != nullptr) {
+			out << "Quirurgica";
+		}
+		else {
+			out << "NoQuirurgica";
+		}
+		out << endl;
+	}
+
+	return out;
 }
