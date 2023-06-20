@@ -29,7 +29,7 @@ public:
 
 	// Va a buscar los pacientes que YA TIENEN protesis
 	// Sea segun la protesis o el hospital
-	// void asignacionDeProtesis();
+	void asignacionDeProtesis();
 	cPaciente* buscarPacSinProtesis();
 	cProtesis* busquedaProtesis(cPaciente& paciente);
 

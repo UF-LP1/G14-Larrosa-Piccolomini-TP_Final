@@ -60,6 +60,10 @@ int main(void) {
     // NOTA-> Es horrible como queda el listado, pero es funcional, asi que worth it
     anpa->listarPacientes();
 
+    cOrtopedia* orto1 = new cOrtopedia("Ortos", "maria");
+    cFabricante* fabri1 = new cFabricante("jose", "perez", "222333444");
+    cQuirurgica* prote1 = new cQuirurgica(2.2, "2/7/2019", fabri1, SupIzq, "lasagna");
+
     // Por como estan armados los constructores, con solo el delete del anpa alcanza
     delete anpa;
     return 0;
