@@ -27,11 +27,9 @@
 // 
 // - Hacer que los fabricantes "fabriquen" una protesis en caso de que las ortopedias no tengan stock o no haya sido encontrada
 // 
-// - Verificar que los deletes sean efectivos a mas no poder
-//
-// - Hacer los getters y setters necesarios donde se los use
+// - Verificar que los deletes sean efectivos
 // 
-// - Dearrollar los metodos "imprimir" y "toString" de casi todas las clases
+// - Hacer los getters y setters necesarios donde se los use
 // 
 // - Generar (al menos una) custom exception
 //

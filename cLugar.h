@@ -11,5 +11,6 @@ public:
 
 	virtual string toString() = 0;
 	virtual void imprimir() = 0;
+	string getNombre();
 	string getClave() const;
 };

@@ -1,23 +1,24 @@
 #pragma once
 #include "headers.h"
 
-#include "cHospital.h"
 #include "cMedico.h"
-#include "cProtesis.h"
 #include "cPaciente.h"
+#include "cHospital.h"
+#include "cQuirurgica.h"
+#include "cNoQuirurgica.h"
 
 class cRegistro {
 private:
 	cHospital* hospital;
 	cMedico* medico;
-	tm* fechaSolicitada;
-	tm* fechaEstimada;
-	tm* fechaEntrega;
+	struct tm fechaSolicitada;
+	struct tm fechaEstimada;
+	struct tm fechaEntrega;
 	cProtesis* pieza;
 	cPaciente* paciente;
 
 public:
-	cRegistro(cHospital*,cMedico*,tm*,tm*,tm*,cProtesis*,cPaciente*);
+	cRegistro(cHospital*,cMedico*,tm,tm,tm,cProtesis*,cPaciente*);
 	~cRegistro();
 
 	string toString();

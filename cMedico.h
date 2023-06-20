@@ -8,7 +8,7 @@ private:
 	bool disponibilidad;
 
 public:
-	cMedico(string,string,string,bool);
+	cMedico(string,string,string);
 	~cMedico();
 
 	string getMatricula();

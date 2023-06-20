@@ -17,8 +17,7 @@ typedef struct Fecha {
 }sFecha;
 
 // Obtener el tiempo actual
-tm* setFecha()
-{
+tm* setFecha() {
 	time_t tiempoActual = time(0);
 	struct tm* tiempoLocal = localtime(&tiempoActual);
 

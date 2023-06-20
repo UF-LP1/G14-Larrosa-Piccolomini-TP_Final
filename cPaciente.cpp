@@ -76,9 +76,14 @@ void cPaciente::setProtesis(cProtesis& proteAsignada) {
 
 string cPaciente::toString() {
 	string aux = "";
+	aux = this->nombre +','+ this->apellido +',';
+	aux += to_string(this->fechaNac.tm_mday) + '/' + to_string(this->fechaNac.tm_mon+1) + '/' + to_string(this->fechaNac.tm_year+1900) + ',';
+	aux += this->telContacto +','+ to_string(this->radioAmputado) + ',' + this->alergias + ',' + this->hospitalPropio->getNombre();
 	return aux;
+
 }
 
 void cPaciente::imprimir() {
-
+	cout << "PACIENTE\nnombre,apellido,fechaNacimiento,telContacto,radioAmputado,hospitalPropio" << endl;
+	cout << toString() << endl;
 }
