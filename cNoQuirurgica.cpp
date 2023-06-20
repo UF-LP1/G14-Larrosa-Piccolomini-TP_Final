@@ -17,7 +17,6 @@ string cNoQuirurgica::toString() {
 	aux += to_string(this->fechaFabricacion.tm_mday) + '/' + to_string(this->fechaFabricacion.tm_mon+1) + '/';
 	aux += to_string(this->fechaFabricacion.tm_year+1900) + ',' + this->fabricante->getNombre() + ',';
 
-	// eTipos { SupIzq, SupDer, InfIzq, InfDer };
 	switch (this->tipo) {
 
 	case 0:

@@ -14,19 +14,17 @@ private:
 	cHospital* hospitalPropio;
 	bool autorizacion;
 	cProtesis* protesis;
+	eTipos miembro;
 
 public:
 
-	cPaciente(const string, const string, const string, string, cHospital*, double radio = 0.0, string alergias = "");
-
-	// Esta sobrecarga del constructor es para los pacientes que son ingresados por consola
-	// cPaciente(const string, const string, const string, string, double, string, cHospital*);
-
+	cPaciente(const string, const string, const string, string, cHospital*, double radio, eTipos Miembro = Nada , string alergias = "");
 	~cPaciente();
 
 	double getRadio();
 	string getAlergias();
 	bool getAutorizacion();
+	eTipos getMiembro();
 	cProtesis* getProtesis();
 	cHospital* getHospitalPropio();
 

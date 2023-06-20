@@ -17,10 +17,23 @@ public:
 	list<cProtesis*>::iterator getPrimProt();
 	list<cProtesis*>::iterator getUltProt();
 
+	void agregarFabricante(cFabricante& fabricante);
+	void agregarProtesis(cProtesis& protesis);
+
 	// Protesis requerida necesitará un bool, true = quirurgica
 	cProtesis* protRequerida(bool,double dimentions, eTipos tipo);
 	cProtesis* chequeoFabricante();
 	string toString();
+
 	void imprimir();
+
+	void operator+(cProtesis& protesis) {
+		this->agregarProtesis(protesis);
+	}
+
+	void operator+(cFabricante& fabricante) {
+		this->agregarFabricante(fabricante);
+	}
 };
 
+ostream& operator<<(ostream& out, cOrtopedia& ortopedia);
