@@ -42,8 +42,12 @@ void cMedico::solicitarFabricante(int tipoProte) {
 
 	/*
 	Recibe la protesis requerida, (de alguna manera implementada en el futuro),
-	accede a fabricante y alerta al mismo que se necesita protesis.
+	accede a fabricante y alerta al	 mismo que se necesita protesis.
 	El fabricante suma al stock de ortopedia la pieza requerida
 	*/
-
+	cFabricante* fabricio = new cFabricante("jose", "luis", "abcde");
+	if(tipoProte==1)
+	fabricio->protesisRequerida("Q");
+	if (tipoProte == 2)
+		fabricio->protesisRequerida("NQ");
 }

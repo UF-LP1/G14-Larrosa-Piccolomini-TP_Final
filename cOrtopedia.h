@@ -19,6 +19,7 @@ public:
 
 	// Protesis requerida necesitará un bool, true = quirurgica
 	cProtesis* protRequerida(bool,double dimentions, eTipos tipo);
+	cProtesis* chequeoFabricante();
 	string toString();
 	void imprimir();
 };

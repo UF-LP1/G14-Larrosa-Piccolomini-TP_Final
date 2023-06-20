@@ -5,10 +5,14 @@
 class cFabricante : public cLugar {
 private:
 	const string numHabilit;
-
+protected:
+	string protCode;
 public:
 	cFabricante(string,string,string);
 	~cFabricante();
+	string getProtCode();
+	void setProtCode(string code);
+	void protesisRequerida(string tipoProt);
 	string toString();
 	void imprimir();
 
@@ -25,4 +29,5 @@ public:
 
 	friend class cProtesis;
 	friend class cMedico;
+	friend class cOrtopedia;
 };

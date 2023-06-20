@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cPersona.h"
+#include "cFabricante.h"
 
 class cMedico: public cPersona {
 private:
