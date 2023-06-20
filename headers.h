@@ -16,22 +16,6 @@ typedef struct Fecha {
 	int dia, mes, anio;
 }sFecha;
 
-/*
-// Obtener el tiempo actual
-tm* setFecha() {
-	time_t tiempoActual = time(0);
-	struct tm* tiempoLocal = localtime(&tiempoActual);
+enum eTipos { SupIzq, SupDer, InfIzq, InfDer, Nada};
 
-	// Obtener los componentes de tiempo individuales
-	int anio = tiempoLocal->tm_year + 1900;
-	int mes = tiempoLocal->tm_mon + 1;
-	int dia = tiempoLocal->tm_mday;
-	int hora = tiempoLocal->tm_hour;
-	int minuto = tiempoLocal->tm_min;
-	int segundo = tiempoLocal->tm_sec;
-
-	return tiempoLocal;
-}
-*/
-
-enum eTipos { SupIzq, SupDer, InfIzq, InfDer };
+// Se lesionó Gago, no importa cuando leas ésto

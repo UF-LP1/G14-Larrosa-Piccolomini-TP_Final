@@ -1,6 +1,6 @@
 #include "cPaciente.h"
 
-cPaciente::cPaciente(const string Nombre, const string Apellido, const string FechaNac, string TelContacto, cHospital* HospitalPropio, double radio, string Alergias) : cPersona(Nombre, Apellido) {
+cPaciente::cPaciente(const string Nombre, const string Apellido, const string FechaNac, string TelContacto, cHospital* HospitalPropio, double radio, eTipos Miembro, string Alergias) : cPersona(Nombre, Apellido) {
 	// La fecha que se le pasa al constructor esta
 	// en el formato de dd/mm/aaaa
 	stringstream fechaIngresada(FechaNac);
@@ -18,6 +18,8 @@ cPaciente::cPaciente(const string Nombre, const string Apellido, const string Fe
 	getline(fechaIngresada, aux);
 	auxF.anio = stoi(aux);
 
+	this->miembro = Miembro;
+
 	// Pasamos lo guardado a un struct tm
 	// el -1900 en anio es porque tm tiene en cuenta los anios pasados desde el 1900
 	// el -1 en mes es porque el rango va de 0 a 11
@@ -25,10 +27,13 @@ cPaciente::cPaciente(const string Nombre, const string Apellido, const string Fe
 
 	this->telContacto = TelContacto;
 
-	// El radio puede ser 0
-	// Hay que hacer un if en algun lugar de asignar protesis
-	// para chequear el radio (puede ser un try catch)
-	this->radioAmputado = radio;
+	if (this->miembro == Nada) {
+		this->radioAmputado = 0.0;
+	}
+	else {
+		this->radioAmputado = radio;
+	}
+
 	this->alergias = Alergias;
 	this->hospitalPropio = HospitalPropio;
 
@@ -40,6 +45,9 @@ cPaciente::cPaciente(const string Nombre, const string Apellido, const string Fe
 }
 
 cPaciente::~cPaciente() {
+	// La protesis asignada al paciente no estará en el listado de ninguna ortopedia
+	// Por lo tanto la deleteamos aca
+	delete this->protesis;
 }
 
 
@@ -56,6 +64,10 @@ string cPaciente::getAlergias() {
 
 bool cPaciente::getAutorizacion() {
 	return this->autorizacion;
+}
+
+eTipos cPaciente::getMiembro() {
+	return this->miembro;
 }
 
 cProtesis* cPaciente::getProtesis() {
