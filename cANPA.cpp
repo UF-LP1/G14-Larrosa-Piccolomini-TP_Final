@@ -38,37 +38,31 @@ void cANPA::agregarPacienteParticular() {
 	// Luego se guarda en listaPacientes
 }
 
-/*
 //encapsular metPacodo en modulos de distintas funciones
 void cANPA::asignacionDeProtesis() {
-	cPaciente* paciente;
-	// Busca un paciente con necesidad de protesis
+
 	try {
-		paciente = buscarPacSinProtesis();
+		cPaciente* paciente = buscarPacSinProtesis();
+		// Busca un paciente con necesidad de protesis
+		if (paciente != nullptr) {
+			// Chequea convenio del hospital del paciente con las ortopedias
+			cProtesis* protesis = busquedaProtesis(*paciente);
+
+			if (protesis != nullptr) {
+				// Si protesis no es nullptr, entonces alguna fue encontrada
+				// Dicha protesis se le asigna al paciente
+				paciente->setProtesis(*protesis);
+				//creo fecha para asignar a registro
+				// tm *fechaEntrega;
+			}
+		}
+		//el THROW excepcion se hace en nivel inferior a donde se genera el TRY
 	}
 	catch (exception e)
 	{
 		cout << e.what() << endl;
 	}
-
-	if (paciente != nullptr) {
-		// Chequea convenio del hospital del paciente con las ortopedias
-		cProtesis* protesis = busquedaProtesis(*paciente);
-
-		if (protesis != nullptr) {
-			// Si protesis no es nullptr, entonces alguna fue encontrada
-			// Dicha protesis se le asigna al paciente
-			paciente->setProtesis(*protesis);
-			//creo fecha para asignar a registro
-			// tm *fechaEntrega = setFecha();
-		}
-	}
-
-	else {
-		throw exception("Ya no queda nadie registrado que necesite una protesis");
-	}
 }
-*/
 
 // Recorre la lista de pacientes registrados del ANPA
 // hasta encontrar uno que no tenga una protesis asignada
@@ -79,21 +73,20 @@ cPaciente* cANPA::buscarPacSinProtesis() {
 	cPaciente* aux = nullptr;
 	bool flag = true;
 	list<cPaciente*> ::iterator itr = listaPacientes.begin();
-	/*
+	
 	while (flag && itr != this->listaPacientes.end()) {
 		if ((*itr)->getProtesis() == nullptr && (*itr)->getRadio() != 0) {
 			aux = *itr;
 			flag = false;
 			//paciente necesita protesis: genero solicitud
-			tm* fechaSolicitud = setFecha();
+			//tm* fechaSolicitud;
 			//estimado de 1 mes de fabricacion
-			tm* fechaEstimada = setFecha();
-			fechaEstimada->tm_mon + 1;
+			//tm* fechaEstimada;
+			//fechaEstimada->tm_mon + 1;
 			//asigno esta informacion al registro
 		}
 	}
 	throw exception("No hay paciente que necesite protesis");
-	*/
 	return aux;
 }
 
