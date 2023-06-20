@@ -49,20 +49,6 @@ string cQuirurgica::toString() {
 }
 
 void cQuirurgica::imprimir() {
-	cout << "PROTESIS QUIRURGICA\ndimensiones,fabricacion,fabricante,materiales,tipo" << endl;
+	// dimensiones,fabricacion,fabricante,materiales,tipo
 	cout << this->toString() << endl;
-}
-
-bool operator==(cProtesis& p1, cProtesis& p2) {
-	bool flag = false;
-
-	// Dejamos muchos ifs anidados para que no quede un choclo de condiciones
-	// Los getFabricante van con * para utilizar la sobrecarga del == hecha en cFabricante.h
-	if (p1.getDimensiones() == p2.getDimensiones() && p1.getFechaFabricacion() == p2.getFechaFabricacion()) {
-		if (p1.getTipo() == p2.getTipo() && *(p1.getFabricante()) == *(p2.getFabricante())) {
-			flag = true;
-		}
-	}
-
-	return flag;
 }

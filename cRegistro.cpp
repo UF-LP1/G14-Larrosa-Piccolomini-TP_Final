@@ -36,7 +36,7 @@ string cRegistro::toString() {
 }
 
 void cRegistro::imprimir() {
-	cout << "REGISTRO\nhospital,matriculaMedico,fechaSolicitada,fechaEstimada,fechaEntrega,clase,nombrePaciente,apellidoPaciente" << endl;
+	// hospital,matriculaMedico,fechaSolicitada,fechaEstimada,fechaEntrega,clase,nombrePaciente,apellidoPaciente
 	cout << toString() << endl;
 }
 

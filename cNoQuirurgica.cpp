@@ -42,6 +42,6 @@ string cNoQuirurgica::toString() {
 }
 
 void cNoQuirurgica::imprimir() {
-	cout << "PROTESIS NO QUIRURGICA\ndimensiones,fabricacion,fabricante,tipo" << endl;
+	// dimensiones,fabricacion,fabricante,tipo
 	cout << this->toString() << endl;
 }

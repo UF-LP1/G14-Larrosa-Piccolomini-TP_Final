@@ -1,9 +1,6 @@
 #include "cPaciente.h"
 
-// HACER TODOS LOS DE TIME_T con TM
-// ES MUCHO MAS SIMPLE DE HACER
-
-cPaciente::cPaciente(const string Nombre, const string Apellido, const string FechaNac, string TelContacto, double RadioAmputado, string Alergias, cHospital* HospitalPropio) : cPersona(Nombre, Apellido) {
+cPaciente::cPaciente(const string Nombre, const string Apellido, const string FechaNac, string TelContacto, cHospital* HospitalPropio, double radio, string Alergias) : cPersona(Nombre, Apellido) {
 	// La fecha que se le pasa al constructor esta
 	// en el formato de dd/mm/aaaa
 	stringstream fechaIngresada(FechaNac);
@@ -31,7 +28,7 @@ cPaciente::cPaciente(const string Nombre, const string Apellido, const string Fe
 	// El radio puede ser 0
 	// Hay que hacer un if en algun lugar de asignar protesis
 	// para chequear el radio (puede ser un try catch)
-	this->radioAmputado = RadioAmputado;
+	this->radioAmputado = radio;
 	this->alergias = Alergias;
 	this->hospitalPropio = HospitalPropio;
 
@@ -84,6 +81,6 @@ string cPaciente::toString() {
 }
 
 void cPaciente::imprimir() {
-	cout << "PACIENTE\nnombre,apellido,fechaNacimiento,telContacto,radioAmputado,hospitalPropio" << endl;
+	// nombre,apellido,fechaNacimiento,telContacto,radioAmputado,hospitalPropio
 	cout << toString() << endl;
 }

@@ -23,7 +23,7 @@ string cMedico::toString() {
 }
 
 void cMedico::imprimir() {
-	cout << "MEDICO\nnombre,apellido,matricula" << endl;
+	// nombre,apellido,matricula
 	cout << this->toString() << endl;
 }
 

@@ -61,6 +61,6 @@ string cOrtopedia::toString() {
 }
 
 void cOrtopedia::imprimir() {
-	cout << "ORTOPEDIA\nnombre,direccion" << endl;
+	// nombre,direccion
 	cout << toString() << endl;
 }

@@ -1,7 +1,7 @@
 #include "cHospital.h"
 
 cHospital::cHospital(string Nombre, string Direccion) : cLugar(Nombre,Direccion) {
-    this->listaPacientes = list<cPaciente*>();
+    // this->listaPacientes = list<cPaciente*>();
     this->listaMedicos = list<cMedico*>();
     this->listaOrtopConvenio = list<cOrtopedia*>();
 }
@@ -54,7 +54,7 @@ string cHospital::toString() {
 }
 
 void cHospital::imprimir() {
-    cout << "HOSPITAL\nNombre,Direccion" << endl;
+    // nombre,direccion
     cout << toString() << endl;
 }
 
