@@ -13,8 +13,8 @@ public:
 	virtual string toString() = 0;
 	virtual void imprimir() = 0;
 
-	// No convendria mas hacer getClave() virtual = 0 ?
-	// Asi en medico retorna la matricula
-	// Y en paciente retorna apellido,telContacto 
+	string getNombre();
+	string getApellido();
+
 	string getClave() const;
 };

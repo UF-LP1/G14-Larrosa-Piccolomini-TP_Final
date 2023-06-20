@@ -13,6 +13,6 @@ string cFabricante::toString() {
 }
 
 void cFabricante::imprimir() {
-	cout << "FABRICANTE\nNombre,Direccion,NumeroHabilitacion" << endl;
-	cout << toString() << endl;
+	// nombre,direccion,numHabilitacion
+	cout << this->toString() << endl;
 }

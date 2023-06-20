@@ -3,12 +3,9 @@
 #include "cLugar.h"
 #include "cMedico.h"
 #include "cOrtopedia.h"
-#include "cPaciente.h"
-// #include "cPaciente.h"
 
 class cHospital : public cLugar {
 protected:
-	list<cPaciente*> listaPacientes;
 	list<cMedico*> listaMedicos;
 	list<cOrtopedia*> listaOrtopConvenio;
 
