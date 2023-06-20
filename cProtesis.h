@@ -29,4 +29,4 @@ public:
 	virtual void imprimir() = 0;
 };
 
-bool operator==(cProtesis& p1, cProtesis& p2);
+// bool operator==(cProtesis& p1, cProtesis& p2);

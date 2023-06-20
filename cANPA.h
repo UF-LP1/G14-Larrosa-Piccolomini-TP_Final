@@ -29,11 +29,16 @@ public:
 
 	// Va a buscar los pacientes que YA TIENEN protesis
 	// Sea segun la protesis o el hospital
-	void asignacionDeProtesis();
+	// void asignacionDeProtesis();
 	cPaciente* buscarPacSinProtesis();
 	cProtesis* busquedaProtesis(cPaciente& paciente);
 
-	void generoRegistro(cHospital* hospi, cMedico* med, tm* f, tm* f2, tm* f3, cProtesis* prote, cPaciente* paci);
+	// Lista a todos los pacientes registrados en el ANPA
+	void listarPacientes();
+
+	void generarRegistro(cHospital* hospi, cMedico* med, tm* f, tm* f2, tm* f3, cProtesis* prote, cPaciente* paci);
+
+
 	// Sobrecarga del operador +
 	// donde se agregan elementos a las listas del ANPA
 	void operator+(cRegistro& newRegistro) {
@@ -54,7 +59,7 @@ public:
 
 	cPaciente* operator[](int i) {
 		if ( i < 0 || i >= listaPacientes.size() ) {
-			throw exception("Índice fuera de rango!");
+			throw exception("Indice fuera de rango");
 		}
 
 		int cont = 0;

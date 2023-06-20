@@ -59,6 +59,7 @@ eTipos cProtesis::getTipo() {
 	return this->tipo;
 }
 
+
 bool operator==(cProtesis& p1, cProtesis& p2) {
 	bool flag = false;
 
@@ -71,4 +72,5 @@ bool operator==(cProtesis& p1, cProtesis& p2) {
 	}
 
 	return flag;
+
 }

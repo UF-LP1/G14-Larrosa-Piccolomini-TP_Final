@@ -55,9 +55,12 @@ cProtesis* cOrtopedia::protRequerida(bool quirurgica, double dimentions, eTipos 
 }
 
 string cOrtopedia::toString() {
-	string aux;
+	string aux = "";
+	aux = this->nombre + ',' + this->direccion;
 	return aux;
 }
 
 void cOrtopedia::imprimir() {
+	// nombre,direccion
+	cout << toString() << endl;
 }

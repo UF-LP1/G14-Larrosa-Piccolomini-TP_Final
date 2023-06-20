@@ -18,6 +18,3 @@ public:
 	string toString();
 	void imprimir();
 };
-
-
-

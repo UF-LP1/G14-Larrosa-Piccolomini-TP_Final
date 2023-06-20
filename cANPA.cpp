@@ -38,6 +38,7 @@ void cANPA::agregarPacienteParticular() {
 	// Luego se guarda en listaPacientes
 }
 
+/*
 //encapsular metPacodo en modulos de distintas funciones
 void cANPA::asignacionDeProtesis() {
 	cPaciente* paciente;
@@ -59,7 +60,7 @@ void cANPA::asignacionDeProtesis() {
 			// Dicha protesis se le asigna al paciente
 			paciente->setProtesis(*protesis);
 			//creo fecha para asignar a registro
-			tm *fechaEntrega = setFecha();
+			// tm *fechaEntrega = setFecha();
 		}
 	}
 
@@ -67,6 +68,7 @@ void cANPA::asignacionDeProtesis() {
 		throw exception("Ya no queda nadie registrado que necesite una protesis");
 	}
 }
+*/
 
 // Recorre la lista de pacientes registrados del ANPA
 // hasta encontrar uno que no tenga una protesis asignada
@@ -77,7 +79,7 @@ cPaciente* cANPA::buscarPacSinProtesis() {
 	cPaciente* aux = nullptr;
 	bool flag = true;
 	list<cPaciente*> ::iterator itr = listaPacientes.begin();
-
+	/*
 	while (flag && itr != this->listaPacientes.end()) {
 		if ((*itr)->getProtesis() == nullptr && (*itr)->getRadio() != 0) {
 			aux = *itr;
@@ -91,6 +93,7 @@ cPaciente* cANPA::buscarPacSinProtesis() {
 		}
 	}
 	throw exception("No hay paciente que necesite protesis");
+	*/
 	return aux;
 }
 
@@ -134,16 +137,25 @@ cProtesis* cANPA::busquedaProtesis(cPaciente& paciente) {
 	return aux;
 }
 
-void cANPA::generoRegistro(cHospital* hospi, cMedico* med, tm* f, tm* f2, tm* f3, cProtesis* prote, cPaciente* paci)
-{
+void cANPA::listarPacientes() {
+	cout << "PACIENTES REGISTRADOS" << endl;
+	cout << "nombre, apellido, fechaNacimiento, telContacto, radioAmputado, hospitalPropio" << endl;
+	list<cPaciente*>::iterator itr = this->listaPacientes.begin();
+	for (itr; itr != this->listaPacientes.end(); itr++) {
+		(*itr)->imprimir();
+	}
+
+}
+
+void cANPA::generarRegistro(cHospital* hospi, cMedico* med, tm* f, tm* f2, tm* f3, cProtesis* prote, cPaciente* paci) {
 	list<cRegistro*> ::iterator itO;
 	itO = listaRegistros.begin();
-	for (itO; itO != listaRegistros.end(); itO++)
-	{
-		if ((*itO) == nullptr)
-		{//en caso de no existir, se crea
-			cRegistro* registro = new cRegistro(hospi, med, f, f2, f3, prote, paci);
-			(*itO) = registro;
+	for (itO; itO != listaRegistros.end(); itO++){
+		if ((*itO) == nullptr) {
+			// En caso de no existir, se crea un registro tal que
+			// cRegistro* registro = new cRegistro(hospi, med, f, f2, f3, prote, paci);
+			// Y se le asigna a la lista desde el iterador
+			// (*itO) = registro;
 		}
 	}
 }
