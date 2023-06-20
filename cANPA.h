@@ -33,6 +33,7 @@ public:
 	cPaciente* buscarPacSinProtesis();
 	cProtesis* busquedaProtesis(cPaciente& paciente);
 
+	void generoRegistro(cHospital* hospi, cMedico* med, tm* f, tm* f2, tm* f3, cProtesis* prote, cPaciente* paci);
 	// Sobrecarga del operador +
 	// donde se agregan elementos a las listas del ANPA
 	void operator+(cRegistro& newRegistro) {

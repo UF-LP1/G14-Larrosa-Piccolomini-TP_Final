@@ -40,9 +40,15 @@ void cANPA::agregarPacienteParticular() {
 
 //encapsular metPacodo en modulos de distintas funciones
 void cANPA::asignacionDeProtesis() {
-	
+	cPaciente* paciente;
 	// Busca un paciente con necesidad de protesis
-	cPaciente* paciente = buscarPacSinProtesis();
+	try {
+		paciente = buscarPacSinProtesis();
+	}
+	catch (exception e)
+	{
+		cout << e.what() << endl;
+	}
 
 	if (paciente != nullptr) {
 		// Chequea convenio del hospital del paciente con las ortopedias
@@ -52,6 +58,8 @@ void cANPA::asignacionDeProtesis() {
 			// Si protesis no es nullptr, entonces alguna fue encontrada
 			// Dicha protesis se le asigna al paciente
 			paciente->setProtesis(*protesis);
+			//creo fecha para asignar a registro
+			tm *fechaEntrega = setFecha();
 		}
 	}
 
@@ -74,9 +82,15 @@ cPaciente* cANPA::buscarPacSinProtesis() {
 		if ((*itr)->getProtesis() == nullptr && (*itr)->getRadio() != 0) {
 			aux = *itr;
 			flag = false;
+			//paciente necesita protesis: genero solicitud
+			tm* fechaSolicitud = setFecha();
+			//estimado de 1 mes de fabricacion
+			tm* fechaEstimada = setFecha();
+			fechaEstimada->tm_mon + 1;
+			//asigno esta informacion al registro
 		}
 	}
-
+	throw exception("No hay paciente que necesite protesis");
 	return aux;
 }
 
@@ -118,6 +132,20 @@ cProtesis* cANPA::busquedaProtesis(cPaciente& paciente) {
 	// en ninguna ortopedia con convenio del hospital,
 	// retorna nullptr
 	return aux;
+}
+
+void cANPA::generoRegistro(cHospital* hospi, cMedico* med, tm* f, tm* f2, tm* f3, cProtesis* prote, cPaciente* paci)
+{
+	list<cRegistro*> ::iterator itO;
+	itO = listaRegistros.begin();
+	for (itO; itO != listaRegistros.end(); itO++)
+	{
+		if ((*itO) == nullptr)
+		{//en caso de no existir, se crea
+			cRegistro* registro = new cRegistro(hospi, med, f, f2, f3, prote, paci);
+			(*itO) = registro;
+		}
+	}
 }
 
 // En las agregar de Registro, Ortopedia y Hospital

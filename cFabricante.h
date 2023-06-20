@@ -24,4 +24,5 @@ public:
 	}
 
 	friend class cProtesis;
+	friend class cMedico;
 };

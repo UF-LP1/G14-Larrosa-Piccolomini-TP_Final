@@ -33,6 +33,9 @@
 // 
 // - Dearrollar los metodos "imprimir" y "toString" de casi todas las clases
 // 
+// - Generar (al menos una) custom exception
+//
+// - Establecer friendship entre clases que se nos haya pasado
 
 int main(void) {
     cANPA* anpa = new cANPA();
