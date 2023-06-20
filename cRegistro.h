@@ -10,14 +10,14 @@ class cRegistro {
 private:
 	cHospital* hospital;
 	cMedico* medico;
-	time_t fechaSolicitada;
-	time_t fechaEstimada;
-	time_t fechaEntrega;
+	tm* fechaSolicitada;
+	tm* fechaEstimada;
+	tm* fechaEntrega;
 	cProtesis* pieza;
 	cPaciente* paciente;
 
 public:
-	cRegistro(cHospital*,cMedico*,time_t,time_t,time_t,cProtesis*,cPaciente*);
+	cRegistro(cHospital*,cMedico*,tm*,tm*,tm*,cProtesis*,cPaciente*);
 	~cRegistro();
 
 	string toString();

@@ -1,6 +1,7 @@
 #include "cHospital.h"
 
 cHospital::cHospital(string Nombre, string Direccion) : cLugar(Nombre,Direccion) {
+    this->listaPacientes = list<cPaciente*>();
     this->listaMedicos = list<cMedico*>();
     this->listaOrtopConvenio = list<cOrtopedia*>();
 }
@@ -32,6 +33,20 @@ bool cHospital::convenioConOrtop(string direccionOrtop) {
         }
     }
     return flag;
+}
+
+void cHospital::faltaProtesis(cProtesis&prote)
+{
+    // Creamos un iterador para cada lista de la ortopedia
+    list<cMedico*>::iterator itM = this->listaMedicos.begin();
+
+    // Recorremos todas las listas borrando cada elemento
+    for (itM; itM != this->listaMedicos.end(); itM++) {
+        if ((*itM)->getDisponibilidad())
+        {
+            (*itM)->solicitarFabricante(prote.getTipo());
+        }
+    }
 }
 
 string cHospital::toString() {
