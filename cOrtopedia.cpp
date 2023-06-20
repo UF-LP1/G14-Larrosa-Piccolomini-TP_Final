@@ -54,6 +54,23 @@ cProtesis* cOrtopedia::protRequerida(bool quirurgica, double dimentions, eTipos 
 	return protFound;
 }
 
+cProtesis* cOrtopedia::chequeoFabricante()
+{
+	list<cFabricante*> ::iterator itF;
+	itF = listaFabricantes.begin();
+
+	//implementar try catch y exception necesarias
+	//recorro la lista de fabricantes y evaluo que protesis se requiere
+	for (itF; itF != listaFabricantes.end(); itF++)
+	{
+		//dependiendo la necesidad, se suma al contador static (a implementar)
+		//mi intencion es NO implementar un filtro
+		string protRequired = (*itF)->getProtCode();
+
+	}
+	return nullptr;
+}
+
 string cOrtopedia::toString() {
 	string aux = "";
 	aux = this->nombre + ',' + this->direccion;
