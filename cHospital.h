@@ -9,8 +9,11 @@ protected:
 	list<cMedico*> listaMedicos;
 	list<cOrtopedia*> listaOrtopConvenio;
 
-	// Relacion en uml. Composicion de H a P
 	// list<cPaciente*> listaPacientes;
+	// A pesar de que va en contra de la logica pedida por el tp
+	// los hospitales no tienen una lista asignada ya que estamos avanzados con el programa
+	// y cortos de tiempo para que el hospital sea el que posee la lista de pacientes
+	// en lugar del anpa
 
 public:
 	cHospital(string,string);
