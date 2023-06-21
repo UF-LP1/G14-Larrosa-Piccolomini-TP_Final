@@ -27,6 +27,8 @@ public:
 
 	void imprimir();
 
+	void listarProtesis();
+
 	void operator+(cProtesis& protesis) {
 		this->agregarProtesis(protesis);
 	}

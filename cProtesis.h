@@ -28,5 +28,3 @@ public:
 	virtual string toString() = 0;
 	virtual void imprimir() = 0;
 };
-
-// bool operator==(cProtesis& p1, cProtesis& p2);

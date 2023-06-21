@@ -67,18 +67,18 @@ cProtesis* cOrtopedia::chequeoFabricante()
 	list<cFabricante*> ::iterator itF;
 	itF = listaFabricantes.begin();
 
-	//implementar try catch y exception necesarias
-	//recorro la lista de fabricantes y evaluo que protesis se requiere
-	for (itF; itF != listaFabricantes.end(); itF++)
-	{
-		//dependiendo la necesidad, se suma al contador static (a implementar)
-		//8 variantes: Q(1-4) o NQ(1-4)
+	// Implementar try catch y exception necesarias
+	// Recorro la lista de fabricantes y evaluo que protesis se requiere
+	for (itF; itF != listaFabricantes.end(); itF++) {
+		// Dependiendo la necesidad, se suma al contador static (a implementar)
+		// 8 variantes: Q(1-4) o NQ(1-4)
+
 		string protRequired = (*itF)->getProtCode();
 		int num = protRequired[2];
 		eTipos type = Nada;
-		//de no ser especificado, el pac no necesita prot : nada(type)
-		//switch(if) evalua el digito [2](especifica la region)->
-		//que viene por parametro con los casos de enum
+		// De no ser especificado, el pac no necesita prot : nada(type)
+		// switch(if) evalua el digito [2](especifica la region)->
+		// que viene por parametro con los casos de enum
 		// con ese case se crea la protesis
 		if (num == 1)
 			eTipos type = SupIzq;
@@ -91,16 +91,16 @@ cProtesis* cOrtopedia::chequeoFabricante()
 		else
 			eTipos type = Nada;
 
-		if (protRequired[0] = 'Y')
-		{// si el primer char del codigo es Y: constructor de Q
+		if (protRequired[0] = 'Y') {
+			// Si el primer char del codigo es Y: constructor de Q
 			cQuirurgica* proteQ = new cQuirurgica(0, "1/1/1", nullptr, type, "algo");
 		}
-		else if (protRequired[0] = 'N')
-		{//si el primer char del codigo es Y : constructor de NQ
+		else if (protRequired[0] = 'N') {
+			// Si el primer char del codigo es Y : constructor de NQ
 			cNoQuirurgica* proteNQ = new cNoQuirurgica(0, "1/1/1", nullptr, type);
 		}
-		//llamo al constructor de protesis, creo una y la agrego en el listado de la ortopedia
-		//dependiendo variante, filtro entre las caracteristicas con las que creo la protesis
+		// Llamo al constructor de protesis, creo una y la agrego en el listado de la ortopedia
+		// Dependiendo variante, filtro entre las caracteristicas con las que creo la protesis
 	}
 	return nullptr;
 }
@@ -114,6 +114,14 @@ string cOrtopedia::toString() {
 void cOrtopedia::imprimir() {
 	// nombre,direccion
 	cout << toString() << endl;
+}
+
+void cOrtopedia::listarProtesis() {
+	list<cProtesis*>::iterator itr = this->listaProtesis.begin();
+	cout << "LISTA PROTESIS DISPONIBLES" << endl;
+	for (itr; itr != this->listaProtesis.end(); itr++) {
+		(*itr)->imprimir();
+	}
 }
 
 ostream& operator<<(ostream& out, cOrtopedia& ortopedia) {

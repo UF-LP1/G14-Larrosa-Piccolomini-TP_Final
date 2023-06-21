@@ -23,8 +23,6 @@ public:
 
 	string toString();
 	void imprimir();
-	// No sabemos que clave poner para que retorne en cRegistro
-	// Direccion del hospital, apellido del medico, dimensiones protesis, apellido paciente?
 	string getClave() const;
 };
 

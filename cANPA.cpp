@@ -41,7 +41,6 @@ void cANPA::agregarPacienteParticular() {
 		return;
 	}
 
-	// Nombre, Apellido, FechaNac, TelContacto, cHospital* HospitalPropio, double radio, eTipos Miembro, string Alergias
 	// Se tienen que ingresar por teclado los datos de un paciente
 	// Luego se guarda en listaPacientes
 	sFecha fecha = { 0,0,0 };
@@ -350,6 +349,7 @@ void cANPA::agregarHospital(cHospital& newHospital) {
 
 // Agrega un paciente al listado del ANPA
 void cANPA::agregarPaciente(cPaciente& newPaciente) {
+
 	// Creamos un iterador que reccorra la lista,
 	// verificando que el paciente no haya sido previamente ingresado
 	// En caso de que si, lanza una excepcion

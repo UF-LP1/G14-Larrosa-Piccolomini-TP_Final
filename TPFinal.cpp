@@ -11,46 +11,27 @@
 #include "cHospital.h"
 #include "cOrtopedia.h"
 
-// PARA HACER:
-// - Creacion de registros por cada vez que se asigne una protesis a un paciente
-// 
-// - Francia
-// 
-// - La parte del medico a la hora de dar el visto bueno a la asignacion de la protesis al paciente
-// 
-// - El guardado de los registros en el ANPA
-// 
-// - El cambio del formato de fechas de los registros de time_t a struct tm
-//   (Y su lectura usando string stream)
-// 
-// - Hacer que los fabricantes "fabriquen" una protesis en caso de que las ortopedias no tengan stock o no haya sido encontrada
-// 
-// - Generar (al menos una) custom exception
-//
-// - Establecer friendship entre clases que se nos haya pasado
-
 int menu(void);
 
-// NOTA-> No hay fabricantes repetidos por ortopedia, generaria conflictos
 int main(void) {
     cANPA* anpa = new cANPA();
     cHospital* hosp1 = new cHospital("Italiano", "Alem 100");
     cHospital* hosp2 = new cHospital("Pedro Mallo", "Corrientes 200");
 
-    // Si no tiene alergias o un radio amputado, por default va vacio
+    // Si se aclara que tiene alergias o un cierto radio de miembro amputado, por default va vacio
     cPaciente* pac1 = new cPaciente("Matias", "Larrosa", "27/02/2001", "291", hosp1, 2.0, SupDer);
     cPaciente* pac2 = new cPaciente("Lionel", "Messi", "24/06/1987", "011", hosp1, 5.0, InfIzq);
     cPaciente* pac3 = new cPaciente("Franco", "Martinez", "16/06/2001", "291", hosp2, 5.5, SupIzq);
     cPaciente* pac4 = new cPaciente("Alvaro", "Matone", "25/10/2002", "291", hosp2, 4, InfDer);
 
+    // No hay fabricantes repetidos por ortopedia, generaria conflictos
     cOrtopedia* orto1 = new cOrtopedia("Ortopedia1", "Maria");
     cFabricante* fabr1 = new cFabricante("Jose", "Perez", "234");
 
     cQuirurgica* prote1 = new cQuirurgica(2.0, "27/7/2019", fabr1, SupDer, "fibraCarbono");
     cQuirurgica* prote2 = new cQuirurgica(5.0, "21/7/2019", fabr1, SupIzq, "acero");
-
-    cQuirurgica* prote3 = new cQuirurgica(5.5, "21/7/2019", fabr1, InfIzq, "acero");
-    cQuirurgica* prote4 = new cQuirurgica(5.0, "21/7/2019", fabr1, InfDer, "acero");
+    cQuirurgica* prote3 = new cQuirurgica(5.5, "08/7/2019", fabr1, InfIzq, "aerogel");
+    cQuirurgica* prote4 = new cQuirurgica(5.0, "09/7/2019", fabr1, InfDer, "bronce");
 
     *anpa + *hosp1;
     *anpa + *hosp2;
@@ -78,8 +59,9 @@ int main(void) {
         cout << e.what() << endl;
     }
 
+    orto1->listarProtesis();
 
-    int aux;
+    int aux = 0;
     do {
         aux = menu();
         switch (aux) {

@@ -39,21 +39,18 @@ void cMedico::solicitarOrtopedias() {
 }
 
 void cMedico::solicitarFabricante(int tipoProte, int QoNQ) {
+	// Recibe la protesis requerida,(en forma de enum/int),
+	// accede a fabricante y alerta al	 mismo que se necesita protesis.
+	// El fabricante settea a su atb la pieza requerida
+	// entonces cOrtopedia va, chequea ese atb y lo suma a su stock
 
-	/*
-	Recibe la protesis requerida,(en forma de enum/int),
-	accede a fabricante y alerta al	 mismo que se necesita protesis.
-	El fabricante settea a su atb la pieza requerida
-	entonces cOrtopedia va, chequea ese atb y lo suma a su stock
-	*/
-
-	//tipoProte: Sup/Inf + Izq/Der
-	//QoNQ: Q o NQ
+	// tipoProte: Sup/Inf + Izq/Der
+	// Q o NQ
 	cFabricante* fabricio = new cFabricante("jose", "luis", "abcde");
-	if (QoNQ == 1)
+	if (QoNQ == 1) {
 		fabricio->protesisRequerida("YQ", 1);
-	if (QoNQ == 2)
+	}
+	if (QoNQ == 2) {
 		fabricio->protesisRequerida("NQ", 2);
-
-	//deleteo acá la memoria del objetoFabricante?
+	}
 }
