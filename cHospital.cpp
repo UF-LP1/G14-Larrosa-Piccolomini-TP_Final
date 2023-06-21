@@ -45,8 +45,8 @@ void cHospital::faltaProtesis(cProtesis& prote) {
             //random para definir protesis Q o NQ
             int QoNQ = rand() % 2;
             (*itM)->solicitarFabricante(prote.getTipo(), QoNQ);
-            //llamado a funcion con parametro tipo enum/int
-            //podriamos ser exactos con Q o NQ, pero complicado implementar
+            // Llamado a funcion con parametro tipo enum/int
+            // podriamos ser exactos con Q o NQ, pero complicado implementar
         }
     }
 }
@@ -75,9 +75,8 @@ void cHospital::agregarMedico(cMedico& newMedico) {
     this->listaMedicos.push_back(&newMedico);
 }
 
-string cHospital::getMatriculaMed()
-{
-    //recorro la lista de medicos en busqueda de un medico cualquiera DISPONIBLE
+string cHospital::getMatriculaMed() {
+    // Recorro la lista de medicos en busqueda de un medico cualquiera DISPONIBLE
     list<cMedico*>::iterator itM = this->listaMedicos.begin();
     bool flag = true;
     while (flag && (*itM) != this->listaMedicos.back()) {
@@ -87,10 +86,8 @@ string cHospital::getMatriculaMed()
     }
 
     return (*itM)->getMatricula();
-
 }
 
 void cHospital::agregarOrtopedia(cOrtopedia& newOrtopedia) {
     this->listaOrtopConvenio.push_back(&newOrtopedia);
-
 }

@@ -50,8 +50,6 @@ cPaciente::~cPaciente() {
 	delete this->protesis;
 }
 
-
-
 // Getters y Setters
 
 double cPaciente::getRadio() {
@@ -81,7 +79,6 @@ cHospital* cPaciente::getHospitalPropio() {
 void cPaciente::setProtesis(cProtesis& proteAsignada) {
 	this->protesis = &proteAsignada;
 }
-
 
 string cPaciente::toString() {
 	string aux = "";

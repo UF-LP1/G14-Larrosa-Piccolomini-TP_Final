@@ -1,4 +1,5 @@
 #pragma once
+
 // Este archivo lo hacemos por un tema de comodidad
 // No tenemos que andar copiando y pegando enums o librerias en cada .ccp y .h
 
@@ -17,5 +18,3 @@ typedef struct Fecha {
 }sFecha;
 
 enum eTipos { SupIzq, SupDer, InfIzq, InfDer, Nada};
-
-// Se lesionó Gago, no importa cuando leas ésto
