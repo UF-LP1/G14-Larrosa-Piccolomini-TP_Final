@@ -208,6 +208,12 @@ void cANPA::asignacionDeProtesis() {
 			// COSAS QUE HAY QUE HACER ACA SI O SI
 			// Sacar la protesis de la ortopedia (se saca de ortopedia y se lleva al paciente)
 			// Hacer la creacion del registro en una funcion aparte
+			tm f1 = { 0,0,0 };
+			tm f2= { 0,0,0 };
+			tm f3= { 0,0,0 };
+			generarRegistro
+			(paciente->getHospitalPropio(), paciente->getHospitalPropio()->getMatriculaMed(),
+			f1, f2, f3, paciente->getProtesis(), paciente);
 		}
 	}
 }
@@ -277,6 +283,8 @@ cProtesis* cANPA::busquedaProtesis(cPaciente& paciente) {
 	// Ni bien se levante flag, se terminan todos los ciclos while
 	// Es mucho mejor a tener que romper varios ciclos for
 
+	//llamado a funcion con itrO a chequeoFabricante()
+	//(*itrOrt)->chequeoFabricante();
 	// Si no encuntra ninguna protesis 
 	// en ninguna ortopedia con convenio del hospital,
 	// retorna nullptr
@@ -304,7 +312,7 @@ void cANPA::listarHospitales() {
 	}
 }
 
-void cANPA::generarRegistro(cHospital* hospi, cMedico* med, cProtesis* prote, cPaciente* paci) {
+void cANPA::generarRegistro(cHospital* hospi, string matriculaMed,tm,tm,tm, cProtesis* prote, cPaciente* paci) {
 	// Las fechas se las genera aca
 	list<cRegistro*> ::iterator itO;
 	itO = listaRegistros.begin();

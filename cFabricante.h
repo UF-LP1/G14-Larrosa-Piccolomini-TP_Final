@@ -12,7 +12,7 @@ public:
 	~cFabricante();
 	string getProtCode();
 	void setProtCode(string code);
-	void protesisRequerida(string tipoProt);
+	void protesisRequerida(string tipoProt, int QoNQ);
 	string toString();
 	void imprimir();
 
