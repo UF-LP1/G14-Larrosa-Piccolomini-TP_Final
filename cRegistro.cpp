@@ -1,8 +1,8 @@
 #include "cRegistro.h"
 
-cRegistro::cRegistro(cHospital* Hospital, cMedico* Medico, tm FechaSoli, tm FechaEsti, tm FechaEntre, cProtesis* protesis, cPaciente* Paciente) {
+cRegistro::cRegistro(cHospital* Hospital, string Medico, tm FechaSoli, tm FechaEsti, tm FechaEntre, cProtesis* protesis, cPaciente* Paciente) {
 	this->hospital = Hospital;
-	this->medico = Medico;
+	this->matriculaMed = Medico;
 	this->fechaSolicitada = FechaSoli;
 	this->fechaEstimada = FechaEsti;
 	this->fechaEntrega = FechaEntre;
@@ -16,7 +16,7 @@ cRegistro::~cRegistro() {
 string cRegistro::toString() {
 	string aux = "";
 
-	aux = this->hospital->getNombre() + ',' + this->medico->getMatricula() + ',';
+	aux = this->hospital->getNombre() + ',' + this->matriculaMed + ',';
 	aux += to_string(this->fechaSolicitada.tm_mday) + '/' + to_string(this->fechaSolicitada.tm_mon + 1) + '/';
 	aux += to_string(this->fechaSolicitada.tm_year + 1900) + ',' + to_string(this->fechaEstimada.tm_mday) + '/';
 	aux += to_string(this->fechaEstimada.tm_mon + 1) + '/' + to_string(this->fechaEstimada.tm_year + 1900) + ',';

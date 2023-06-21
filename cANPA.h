@@ -55,7 +55,7 @@ public:
 	void listarHospitales();
 
 	// Genera un registro y lo aniade al listado de registros del ANPA
-	void generarRegistro(cHospital* hospi, cMedico* med, cProtesis* prote, cPaciente* paci);
+	void generarRegistro(cHospital* hospi, string matriculaMed, tm, tm, tm, cProtesis* prote, cPaciente* paci);
 
 	// Retorna el atributo estatico de cantidad de hospitales registrados
 	static int getCantHosp();
