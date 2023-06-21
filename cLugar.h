@@ -9,7 +9,8 @@ public:
 	cLugar(string, string);
 	~cLugar();
 
-	virtual string to_string() = 0;
+	virtual string toString() = 0;
 	virtual void imprimir() = 0;
+	string getNombre();
 	string getClave() const;
 };

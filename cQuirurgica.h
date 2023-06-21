@@ -5,13 +5,16 @@
 class cQuirurgica : public cProtesis {
 private:
 	string materiales;
+
 public:
-	cQuirurgica(string Dimentions, time_t FechaFabricacion, cFabricante* Fabricante, eTiposProtesis Tipo, string Materiales);
+	cQuirurgica(double, string, cFabricante*, eTipos, string);
+	// Constructor por copia
+	cQuirurgica(const cQuirurgica& protesis);
+	
 	~cQuirurgica();
 
 	string getMateriales();
 
-	string to_string();
+	string toString();
 	void imprimir();
 };
-
