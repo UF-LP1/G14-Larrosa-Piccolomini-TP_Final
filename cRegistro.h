@@ -10,7 +10,7 @@
 class cRegistro {
 private:
 	cHospital* hospital;
-	cMedico* medico;
+	string matriculaMed;
 	struct tm fechaSolicitada;
 	struct tm fechaEstimada;
 	struct tm fechaEntrega;
@@ -18,7 +18,7 @@ private:
 	cPaciente* paciente;
 
 public:
-	cRegistro(cHospital*,cMedico*,tm,tm,tm,cProtesis*,cPaciente*);
+	cRegistro(cHospital*,string,tm,tm,tm,cProtesis*,cPaciente*);
 	~cRegistro();
 
 	string toString();

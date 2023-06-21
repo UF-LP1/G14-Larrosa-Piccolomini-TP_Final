@@ -23,6 +23,8 @@ public:
 
 	void agregarMedico(cMedico& newMedico);
 
+	string getMatriculaMed();
+
 	void agregarOrtopedia(cOrtopedia& newOrtopedia);
 
 	string toString();

@@ -72,9 +72,35 @@ cProtesis* cOrtopedia::chequeoFabricante()
 	for (itF; itF != listaFabricantes.end(); itF++)
 	{
 		//dependiendo la necesidad, se suma al contador static (a implementar)
-		//mi intencion es NO implementar un filtro
+		//8 variantes: Q(1-4) o NQ(1-4)
 		string protRequired = (*itF)->getProtCode();
+		int num = protRequired[2];
+		eTipos type = Nada;
+		//de no ser especificado, el pac no necesita prot : nada(type)
+		//switch(if) evalua el digito [2](especifica la region)->
+		//que viene por parametro con los casos de enum
+		// con ese case se crea la protesis
+		if (num == 1)
+			eTipos type = SupIzq;
+		else if (num == 2)
+			eTipos type = SupDer;
+		else if (num == 3)
+			eTipos type = InfIzq;
+		else if (num == 4)
+			eTipos type = InfDer;
+		else
+			eTipos type = Nada;
 
+		if (protRequired[0] = 'Y')
+		{// si el primer char del codigo es Y: constructor de Q
+			cQuirurgica* proteQ = new cQuirurgica(0, "1/1/1", nullptr, type, "algo");
+		}
+		else if (protRequired[0] = 'N')
+		{//si el primer char del codigo es Y : constructor de NQ
+			cNoQuirurgica* proteNQ = new cNoQuirurgica(0, "1/1/1", nullptr, type);
+		}
+		//llamo al constructor de protesis, creo una y la agrego en el listado de la ortopedia
+		//dependiendo variante, filtro entre las caracteristicas con las que creo la protesis
 	}
 	return nullptr;
 }
