@@ -35,17 +35,22 @@ bool cHospital::convenioConOrtop(string direccionOrtop) {
     return flag;
 }
 
-void cHospital::faltaProtesis(cProtesis&prote) {
-    // Creamos un iterador para cada lista de la ortopedia
+void cHospital::faltaProtesis(cProtesis& prote) {
+    //recorro medicos, para que soliciten protesis al fabricante
     list<cMedico*>::iterator itM = this->listaMedicos.begin();
 
-    // Recorremos todas las listas borrando cada elemento
     for (itM; itM != this->listaMedicos.end(); itM++) {
-        if ((*itM)->getDisponibilidad()) {
-            (*itM)->solicitarFabricante(prote.getTipo());
+        if ((*itM)->getDisponibilidad()) { //random true o false
+            srand(time(NULL));
+            //random para definir protesis Q o NQ
+            int QoNQ = rand() % 2;
+            (*itM)->solicitarFabricante(prote.getTipo(), QoNQ);
+            //llamado a funcion con parametro tipo enum/int
+            //podriamos ser exactos con Q o NQ, pero complicado implementar
         }
     }
 }
+
 
 string cHospital::toString() {
     string aux = "";

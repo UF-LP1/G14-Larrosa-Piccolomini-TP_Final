@@ -277,6 +277,8 @@ cProtesis* cANPA::busquedaProtesis(cPaciente& paciente) {
 	// Ni bien se levante flag, se terminan todos los ciclos while
 	// Es mucho mejor a tener que romper varios ciclos for
 
+	//llamado a funcion con itrO a chequeoFabricante()
+	//(*itrOrt)->chequeoFabricante();
 	// Si no encuntra ninguna protesis 
 	// en ninguna ortopedia con convenio del hospital,
 	// retorna nullptr

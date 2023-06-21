@@ -15,7 +15,7 @@ public:
 	string getMatricula();
 	bool getDisponibilidad();
 	void solicitarOrtopedias();
-	void solicitarFabricante(int tipoProte);
+	void solicitarFabricante(int tipoProte, int QoNQ);
 	string toString();
 	void imprimir();
 };
